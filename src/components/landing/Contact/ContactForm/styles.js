@@ -16,3 +16,7 @@ export const InputField = styled.div`
   position: relative;
   margin-bottom: 1rem;
 `;
+
+export const HiddenInputField = styled(InputField)`
+  display: none;
+`;

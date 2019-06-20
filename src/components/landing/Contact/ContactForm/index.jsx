@@ -1,10 +1,8 @@
 import React from 'react';
 import { Form, withFormik, FastField, ErrorMessage } from 'formik';
-import Recaptcha from 'react-google-recaptcha';
 import * as Yup from 'yup';
 import { Button, Input } from 'Common';
-import { recaptcha_key } from 'Data';
-import { Error, Center, InputField } from './styles';
+import { Error, Center, InputField, HiddenInputField } from './styles';
 
 const ContactForm = ({
   setFieldValue,
@@ -17,8 +15,7 @@ const ContactForm = ({
     name="portfolio-dev"
     method="post"
     data-netlify="true"
-    data-netlify-recaptcha="true"
-    data-netlify-honeypot="bot-field"
+    data-netlify-honeypot="dleiftob"
   >
     <InputField>
       <Input
@@ -59,17 +56,17 @@ const ContactForm = ({
       />
       <ErrorMessage component={Error} name="message" />
     </InputField>
-    {values.name && values.email && values.message && (
-      <InputField>
-        <FastField
-          component={Recaptcha}
-          sitekey={recaptcha_key}
-          name="recaptcha"
-          onChange={value => setFieldValue('recaptcha', value)}
-        />
-        <ErrorMessage component={Error} name="recaptcha" />
-      </InputField>
-    )}
+    <HiddenInputField>
+      <Input
+        id="dleiftob"
+        aria-label="dleiftob"
+        component="input"
+        as={FastField}
+        type="text"
+        name="dleiftob"
+        placeholder="Do not fill this field if you are a human"
+      />
+    </HiddenInputField>
     {values.success && (
       <InputField>
         <Center>
@@ -93,7 +90,7 @@ export default withFormik({
     name: '',
     email: '',
     message: '',
-    recaptcha: '',
+    dleiftob: '',
     success: false,
   }),
   validationSchema: () =>
@@ -103,10 +100,9 @@ export default withFormik({
         .email('Invalid email')
         .required('Email field is required'),
       message: Yup.string().required('Message field is required'),
-      recaptcha: Yup.string().required('Robots are not welcome yet!'),
     }),
   handleSubmit: async (
-    { name, email, message, recaptcha },
+    { name, email, message, dleiftob },
     { setSubmitting, resetForm, setFieldValue }
   ) => {
     try {
@@ -125,7 +121,7 @@ export default withFormik({
           name,
           email,
           message,
-          'g-recaptcha-response': recaptcha,
+          dleiftob,
         }),
       });
       await setSubmitting(false);
@@ -134,7 +130,7 @@ export default withFormik({
     } catch (err) {
       setSubmitting(false);
       setFieldValue('success', false);
-      alert('Something went wrong, please try again!'); // eslint-disable-line
+      alert('Something went wrong, please try again!');
     }
   },
 })(ContactForm);
