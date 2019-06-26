@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Container, Card } from '../../common';
+import { Container, Card, Button } from '../../common';
 import Img from 'gatsby-image';
-import { Wrapper, Grid, Item, Content, Links, Header } from './styles';
+import {
+  Wrapper,
+  Grid,
+  Item,
+  Content,
+  Links,
+  Header,
+  ShowAllContainer,
+} from './styles';
 import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
 
 export const Projects = () => {
@@ -30,11 +38,17 @@ export const Projects = () => {
     }
   `);
 
+  const [showAll, setShowAll] = useState(false);
+
+  const projects = showAll
+    ? data.allProjectsJson.nodes
+    : data.allProjectsJson.nodes.slice(0, 4);
+
   return (
     <Wrapper as={Container} id="projects">
       <h2>Projects</h2>
       <Grid>
-        {data.allProjectsJson.nodes.map(node => (
+        {projects.map(node => (
           <Item key={node.id}>
             <Card>
               <Content>
@@ -94,6 +108,11 @@ export const Projects = () => {
           </Item>
         ))}
       </Grid>
+      {!showAll && (
+        <ShowAllContainer>
+          <Button onClick={() => setShowAll(true)}>Show more</Button>
+        </ShowAllContainer>
+      )}
     </Wrapper>
   );
 };

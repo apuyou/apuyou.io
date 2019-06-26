@@ -67,3 +67,8 @@ export const Links = styled.p`
     margin-right: 0.5rem;
   }
 `;
+
+export const ShowAllContainer = styled.p`
+  text-align: center;
+  margin-top: 2rem;
+`;
