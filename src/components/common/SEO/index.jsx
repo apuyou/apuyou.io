@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Thumbnail from 'Static/thumbnail/thumbnail.png';
 import {
   url,
-  defaultDescription,
+  description as defaultDescription,
   social,
   defaultTitle,
   socialLinks,

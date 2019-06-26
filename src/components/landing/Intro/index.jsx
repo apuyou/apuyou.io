@@ -11,7 +11,7 @@ export const Intro = () => {
     query SiteDescriptionQuery {
       site {
         siteMetadata {
-          intro
+          description
         }
       }
     }
@@ -23,7 +23,7 @@ export const Intro = () => {
       <IntroWrapper as={Container}>
         <Details>
           <h1>Hi!</h1>
-          <h4>{data.site.siteMetadata.intro}</h4>
+          <h4>{data.site.siteMetadata.description}</h4>
           <Button as={AnchorLink} href="#contact">
             Contact me
           </Button>
