@@ -19,6 +19,114 @@
     "tags": ["sideproject", "serverless"],
     "icon": "../src/images/projects/locationdiary.png",
     "period": "May 2019",
-    "description": "Location Diary was created for the Blockstack App Mining constest. Its aim is to allow a user to record his location history in a decentralized storage backed by blockchain."
+    "description": "Location Diary was created for the Blockstack App Mining constest. Its allows users to record their location history in a decentralized storage backed by blockchain."
+  },
+  {
+    "id": "cashless",
+    "name": "Weezevent – WeezPay",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "wap",
+    "name": "Weezevent – WeezAccess",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "mobileboarding",
+    "name": "Amadeus – Mobile Boarding",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "payutc",
+    "name": "payutc",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "simde",
+    "name": "SiMDE",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "etuville",
+    "name": "Etuville",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "portail",
+    "name": "Portail Associations BDE-UTC",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "hanzitraining",
+    "name": "Hanzi Training",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "utcoupe",
+    "name": "UTCoupe",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "polar",
+    "name": "Le Polar",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "mymobilesite",
+    "name": "My Mobile Site",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
+  },
+  {
+    "id": "graphisme",
+    "name": "Graphisme.tk",
+    "url": "",
+    "tags": [],
+    "icon": "../src/images/projects/project.png",
+    "period": "",
+    "description": ""
   }
 ]
