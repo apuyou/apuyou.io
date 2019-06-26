@@ -17,10 +17,6 @@ module.exports = {
   googleAnalyticsID: '',
   themeColor: '#4285F4',
   backgroundColor: '#4285F4',
-  social: {
-    facebook: 'appId',
-    twitter: '@smakosh',
-  },
   address: {
     city: 'City',
     region: 'Region',
@@ -42,6 +38,28 @@ module.exports = {
       id: 'locationdiary',
       name: 'Location Diary',
       url: 'https://github.com/locationdiary/locationdiary',
+    },
+  ],
+  social: [
+    {
+      icon: 'github',
+      name: 'Github',
+      url: 'https://github.com/apuyou',
+    },
+    {
+      icon: 'linkedin',
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/apuyou',
+    },
+    {
+      icon: 'producthunt',
+      name: 'Product Hunt',
+      url: 'https://www.producthunt.com/@apuyou',
+    },
+    {
+      icon: 'twitter',
+      name: 'Twitter',
+      url: 'https://twitter.com/apuyou',
     },
   ],
 };
