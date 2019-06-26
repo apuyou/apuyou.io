@@ -14,6 +14,7 @@ export const Grid = styled.div`
   @media (max-width: 960px) {
     grid-template-columns: repeat(1, 1fr);
   }
+  box-sizing: border-box;
 `;
 
 export const Item = styled.div`
@@ -34,6 +35,13 @@ export const Item = styled.div`
 `;
 
 export const Content = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+export const Header = styled.div`
   padding-bottom: 0.6rem;
 
   display: flex;
@@ -52,7 +60,8 @@ export const Content = styled.div`
 `;
 
 export const Links = styled.p`
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1.3rem;
 
   a {
     margin-right: 0.5rem;
