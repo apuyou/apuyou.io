@@ -1,24 +1,23 @@
 import React from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
-import { Container, Button } from 'Common';
-import dev from 'Static/illustrations/skills.svg';
+import { Container } from 'Common';
+import dev from '../../../../static/illustrations/dev.svg';
 import { Wrapper, SkillsWrapper, Details, Thumbnail } from './styles';
 
 export const Skills = () => (
-  <Wrapper id="about">
+  <Wrapper id="skills">
     <SkillsWrapper as={Container}>
       <Thumbnail>
-        <img src={dev} alt="I’m John and I’m a Backend & Devops engineer!" />
+        <img src={dev} alt="Illustration of a developer and version control" />
       </Thumbnail>
       <Details>
-        <h1>Hi There!</h1>
+        <h2>Software Engineering</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry’s standard dummy.
+          Full-stack software engineering, including architecture.
+          <br />
+          Python (Django). React. Docker. Serveless.
         </p>
-        <Button as={AnchorLink} href="#contact">
-          Hire me
-        </Button>
+        <h2>Product Management</h2>
+        <p>From conception to driving a development team.</p>
       </Details>
     </SkillsWrapper>
   </Wrapper>

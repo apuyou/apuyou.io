@@ -4,14 +4,27 @@ import { Container, Card } from 'Common';
 import starIcon from 'Static/icons/star.svg';
 import forkIcon from 'Static/icons/fork.svg';
 import { Wrapper, Grid, Item, Content, Stats } from './styles';
-import { projects as projectsData } from '../../../../data/config';
 
 export const Projects = () => {
+  const data = useStaticQuery(graphql`
+    query SiteProjectsQuery {
+      site {
+        siteMetadata {
+          projects {
+            id
+            name
+            url
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Wrapper as={Container} id="projects">
       <h2>Projects</h2>
       <Grid>
-        {projectsData.map(({ node }) => (
+        {data.site.siteMetadata.projects.map(node => (
           <Item
             key={node.id}
             as="a"
@@ -27,7 +40,7 @@ export const Projects = () => {
               <Stats>
                 <div>
                   <img src={starIcon} alt="stars" />
-                  <span>{node.stargazers.totalCount}</span>
+                  <span>{node.starCount}</span>
                 </div>
                 <div>
                   <img src={forkIcon} alt="forks" />

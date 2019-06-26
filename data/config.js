@@ -4,6 +4,7 @@ module.exports = {
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
   legalName: 'Arthur Puyou',
+  intro: 'I’m Arthur and I’m a maker!',
   defaultDescription: 'I’m John and I’m a Backend & Devops engineer!',
   socialLinks: {
     twitter: 'https://twitter.com/apuyou',
@@ -14,8 +15,8 @@ module.exports = {
     google: 'https://plus.google.com/u/0/+IsmailSmakoshGhallou',
   },
   googleAnalyticsID: '',
-  themeColor: '#6b63ff',
-  backgroundColor: '#6b63ff',
+  themeColor: '#4285F4',
+  backgroundColor: '#4285F4',
   social: {
     facebook: 'appId',
     twitter: '@smakosh',
@@ -31,5 +32,16 @@ module.exports = {
     phone: 'phone number',
   },
   foundingDate: '2018',
-  projects: [],
+  projects: [
+    {
+      id: 'cheerswipe',
+      name: 'Cheerswipe',
+      url: 'https://github.com/apuyou/cheerswipe',
+    },
+    {
+      id: 'locationdiary',
+      name: 'Location Diary',
+      url: 'https://github.com/locationdiary/locationdiary',
+    },
+  ],
 };
