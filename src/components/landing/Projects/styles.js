@@ -7,16 +7,12 @@ export const Wrapper = styled.div`
 export const Grid = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 8fr;
   gap: 1.2rem 1.2rem;
 
   @media (max-width: 960px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 680px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
@@ -26,36 +22,40 @@ export const Item = styled.div`
   overflow: hidden;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.11);
 
-  h4 {
+  h3 {
     color: #212121;
   }
 
   p {
     color: #707070;
+    margin-bottom: 0;
   }
 `;
 
 export const Content = styled.div`
-  padding: 1rem 0;
-`;
+  padding-bottom: 0.6rem;
 
-export const Stats = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   div {
-    display: flex;
     &:first-child {
       margin-right: 0.5rem;
     }
 
-    img {
-      margin: 0;
+    h3 {
+      margin-bottom: 0;
     }
 
     span {
-      color: #000;
-      margin-left: 0.5rem;
+      color: #888;
+      margin-right: 0.5rem;
     }
   }
+`;
+
+export const Description = styled.div`
+  align-items: center;
+  color: #000;
+  font-size: 12pt;
 `;

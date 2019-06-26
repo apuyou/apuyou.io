@@ -1,19 +1,26 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Container, Card } from 'Common';
-import starIcon from 'Static/icons/star.svg';
-import forkIcon from 'Static/icons/fork.svg';
-import { Wrapper, Grid, Item, Content, Stats } from './styles';
+import { Container, Card } from '../../common';
+import Img from 'gatsby-image';
+import { Wrapper, Grid, Item, Content, Description } from './styles';
 
 export const Projects = () => {
   const data = useStaticQuery(graphql`
-    query SiteProjectsQuery {
-      site {
-        siteMetadata {
-          projects {
-            id
-            name
-            url
+    query GetProjects {
+      allProjectsJson {
+        nodes {
+          id
+          description
+          name
+          url
+          period
+          tags
+          icon {
+            childImageSharp {
+              fixed(width: 64, height: 64) {
+                ...GatsbyImageSharpFixed
+              }
+            }
           }
         }
       }
@@ -24,7 +31,7 @@ export const Projects = () => {
     <Wrapper as={Container} id="projects">
       <h2>Projects</h2>
       <Grid>
-        {data.site.siteMetadata.projects.map(node => (
+        {data.allProjectsJson.nodes.map(node => (
           <Item
             key={node.id}
             as="a"
@@ -34,19 +41,20 @@ export const Projects = () => {
           >
             <Card>
               <Content>
-                <h4>{node.name}</h4>
-                <p>{node.description}</p>
+                <div>
+                  <Img fixed={node.icon.childImageSharp.fixed} />
+                </div>
+                <div>
+                  <h3>{node.name}</h3>
+                  <p>{node.period}</p>
+                  <p>
+                    {node.tags.map(tag => (
+                      <span key={tag}>#{tag}</span>
+                    ))}
+                  </p>
+                </div>
               </Content>
-              <Stats>
-                <div>
-                  <img src={starIcon} alt="stars" />
-                  <span>{node.starCount}</span>
-                </div>
-                <div>
-                  <img src={forkIcon} alt="forks" />
-                  <span>{node.forkCount}</span>
-                </div>
-              </Stats>
+              <Description>{node.description}</Description>
             </Card>
           </Item>
         ))}

@@ -13,18 +13,6 @@ module.exports = {
   },
   themeColor: '#4285F4',
   backgroundColor: '#4285F4',
-  projects: [
-    {
-      id: 'cheerswipe',
-      name: 'Cheerswipe',
-      url: 'https://github.com/apuyou/cheerswipe',
-    },
-    {
-      id: 'locationdiary',
-      name: 'Location Diary',
-      url: 'https://github.com/locationdiary/locationdiary',
-    },
-  ],
   social: [
     {
       icon: 'github',

@@ -15,13 +15,21 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    /* {
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'assets',
-        path: '${__dirname}/src/assets',
+        name: 'images',
+        path: `${__dirname}/src/images`,
       },
-    }, */
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
+    },
+    'gatsby-transformer-json',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
@@ -78,10 +86,10 @@ module.exports = {
       resolve: `gatsby-plugin-netlify`,
       options: {
         headers: {
-					'/*': [
-						'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
-					],
-				},
+          '/*': [
+            'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
+          ],
+        },
       },
     },
   ],

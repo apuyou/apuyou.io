@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cheerswipe",
+    "name": "Cheerswipe",
+    "url": "https://github.com/apuyou/cheerswipe",
+    "tags": ["sideproject", "mobile"],
+    "icon": "../src/images/projects/cheerswipe.png",
+    "period": "June 2019",
+    "description": "Cheerswipe was created for the Makers Festival 'API Edition'. It uses Product Hunt's GraphQL API to display public maker goals in a card like UI and allows cheering them by swiping! It was runner-up in the Mobile Apps category."
+  },
+  {
+    "id": "locationdiary",
+    "name": "Location Diary",
+    "url": "https://github.com/locationdiary/locationdiary",
+    "tags": ["sideproject", "serverless"],
+    "icon": "../src/images/projects/locationdiary.png",
+    "period": "May 2019",
+    "description": "Location Diary was created for the Blockstack App Mining constest. Its aim is to allow a user to record his location history in a decentralized storage backed by blockchain."
+  }
+]
