@@ -2,7 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Container, Card } from '../../common';
 import Img from 'gatsby-image';
-import { Wrapper, Grid, Item, Content, Description } from './styles';
+import { Wrapper, Grid, Item, Content, Links } from './styles';
+import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
 
 export const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -13,6 +14,8 @@ export const Projects = () => {
           description
           name
           url
+          githubUrl
+          producthuntUrl
           period
           tags
           icon {
@@ -32,13 +35,7 @@ export const Projects = () => {
       <h2>Projects</h2>
       <Grid>
         {data.allProjectsJson.nodes.map(node => (
-          <Item
-            key={node.id}
-            as="a"
-            href={node.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Item key={node.id}>
             <Card>
               <Content>
                 <div>
@@ -54,7 +51,43 @@ export const Projects = () => {
                   </p>
                 </div>
               </Content>
-              <Description>{node.description}</Description>
+              <p>{node.description}</p>
+              <Links>
+                {node.url && (
+                  <a
+                    href={node.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Project URL"
+                  >
+                    <FaLink color="#404040" size="16" alt="Link" />
+                  </a>
+                )}
+                {node.githubUrl && (
+                  <a
+                    href={node.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Project Github repository"
+                  >
+                    <FaGithub color="#404040" size="16" alt="Github" />
+                  </a>
+                )}
+                {node.producthuntUrl && (
+                  <a
+                    href={node.producthuntUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Project Product Hunt page"
+                  >
+                    <FaProductHunt
+                      color="#404040"
+                      size="16"
+                      alt="Product Hunt"
+                    />
+                  </a>
+                )}
+              </Links>
             </Card>
           </Item>
         ))}

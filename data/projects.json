@@ -2,7 +2,9 @@
   {
     "id": "cheerswipe",
     "name": "Cheerswipe",
-    "url": "https://github.com/apuyou/cheerswipe",
+    "url": "https://cheerswipe.com",
+    "githubUrl": "https://github.com/apuyou/cheerswipe",
+    "producthuntUrl": "https://www.producthunt.com/posts/cheerswipe",
     "tags": ["sideproject", "mobile"],
     "icon": "../src/images/projects/cheerswipe.png",
     "period": "June 2019",
@@ -11,7 +13,9 @@
   {
     "id": "locationdiary",
     "name": "Location Diary",
-    "url": "https://github.com/locationdiary/locationdiary",
+    "url": "https://locationdiary.com",
+    "githubUrl": "https://github.com/locationdiary/locationdiary",
+    "producthuntUrl": "https://www.producthunt.com/posts/location-diary",
     "tags": ["sideproject", "serverless"],
     "icon": "../src/images/projects/locationdiary.png",
     "period": "May 2019",

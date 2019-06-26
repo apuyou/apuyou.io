@@ -24,10 +24,11 @@ export const Item = styled.div`
 
   h3 {
     color: #212121;
+    margin-bottom: 0;
   }
 
   p {
-    color: #707070;
+    color: #404040;
     margin-bottom: 0;
   }
 `;
@@ -43,19 +44,17 @@ export const Content = styled.div`
       margin-right: 0.5rem;
     }
 
-    h3 {
-      margin-bottom: 0;
-    }
-
     span {
-      color: #888;
+      color: #707070;
       margin-right: 0.5rem;
     }
   }
 `;
 
-export const Description = styled.div`
-  align-items: center;
-  color: #000;
-  font-size: 12pt;
+export const Links = styled.p`
+  margin-top: 1rem;
+
+  a {
+    margin-right: 0.5rem;
+  }
 `;
