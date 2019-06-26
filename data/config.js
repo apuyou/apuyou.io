@@ -1,33 +1,19 @@
 module.exports = {
   defaultTitle: 'apuyou.io',
-  logo: 'https://portfolio.smakosh.com/favicon/favicon-512.png',
+  logo: 'https://apuyou.io/favicon/favicon-512.png',
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
   legalName: 'Arthur Puyou',
   intro: 'I’m Arthur and I’m a maker!',
-  defaultDescription: 'I’m John and I’m a Backend & Devops engineer!',
+  defaultDescription: 'I’m Arthur and I’m a maker!',
   socialLinks: {
     twitter: 'https://twitter.com/apuyou',
-    github: 'https://github.com/smakosh',
-    linkedin: 'https://www.linkedin.com/in/ismail-ghallou-630149122/',
-    instagram: 'https://instagram.com/smakosh19',
-    youtube: 'https://www.youtube.com/user/smakoshthegamer',
-    google: 'https://plus.google.com/u/0/+IsmailSmakoshGhallou',
+    github: 'https://github.com/apuyou',
+    linkedin: 'https://www.linkedin.com/in/apuyou',
+    producthunt: 'https://www.linkedin.com/in/apuyou',
   },
-  googleAnalyticsID: '',
   themeColor: '#4285F4',
   backgroundColor: '#4285F4',
-  address: {
-    city: 'City',
-    region: 'Region',
-    country: 'Country',
-    zipCode: 'ZipCode',
-  },
-  contact: {
-    email: 'email',
-    phone: 'phone number',
-  },
-  foundingDate: '2018',
   projects: [
     {
       id: 'cheerswipe',

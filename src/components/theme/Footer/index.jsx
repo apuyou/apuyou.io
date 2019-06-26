@@ -9,42 +9,54 @@ export const Footer = () => {
     query SiteSocialQuery {
       site {
         siteMetadata {
-          social {
-            icon
-            name
-            url
+          socialLinks {
+            twitter
+            linkedin
+            github
+            producthunt
           }
         }
       }
     }
   `);
+  const { socialLinks } = data.site.siteMetadata;
 
   return (
     <Wrapper>
       <Flex as={Container}>
         <Links>
-          {data.site.siteMetadata.social.map(({ icon, name, url }) => (
-            <a
-              key={icon}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`follow me on ${icon}`}
-            >
-              {icon === 'linkedin' && (
-                <FaLinkedin color="#ebf3fe" size="24" alt={name} />
-              )}
-              {icon === 'github' && (
-                <FaGithub color="#ebf3fe" size="24" alt={name} />
-              )}
-              {icon === 'producthunt' && (
-                <FaProductHunt color="#ebf3fe" size="24" alt={name} />
-              )}
-              {icon === 'twitter' && (
-                <FaTwitter color="#ebf3fe" size="24" alt={name} />
-              )}
-            </a>
-          ))}
+          <a
+            href={socialLinks.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Github"
+          >
+            <FaGithub color="#ebf3fe" size="24" alt="Github" />
+          </a>
+          <a
+            href={socialLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+          >
+            <FaLinkedin color="#ebf3fe" size="24" alt="LinkedIn" />
+          </a>
+          <a
+            href={socialLinks.producthunt}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Product Hunt"
+          >
+            <FaProductHunt color="#ebf3fe" size="24" alt="Product Hunt" />
+          </a>
+          <a
+            href={socialLinks.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Twitter"
+          >
+            <FaTwitter color="#ebf3fe" size="24" alt="Twitter" />
+          </a>
         </Links>
       </Flex>
     </Wrapper>
