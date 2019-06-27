@@ -22,111 +22,124 @@
     "description": "Location Diary was created for the Blockstack App Mining constest. Its allows users to record their location history in a decentralized storage backed by blockchain."
   },
   {
+    "id": "buda",
+    "name": "Buda Gallery",
+    "url": "https://buda.gallery",
+    "tags": ["sideproject", "serverless"],
+    "icon": "../src/images/projects/buda.png",
+    "period": "April 2019 – May 2019",
+    "description": "I created this app as I couldn't find an easy way to share my travel pictures with friends and family. Buda Gallery is extremely simple: visit the site, upload your pictures and you immediately get a link to share it. That's all :)"
+  },
+  {
+    "id": "hop",
+    "name": "Weezevent – Head of Product",
+    "url": "https://weezevent.com/",
+    "tags": ["work", "management"],
+    "icon": "../src/images/projects/weezevent.jpg",
+    "period": "October 2016 – January 2019",
+    "description": "After launching two products successfully, I was appointed as Head of Product and built a product team starting from scratch. This involved recruting 5 Product Managers and setting up multiple processes impacting all services in the company."
+  },
+  {
     "id": "cashless",
     "name": "Weezevent – WeezPay",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "url": "https://weezevent.com/en-gb/weezpay/cashless/",
+    "tags": ["work", "nfc"],
+    "icon": "../src/images/projects/weezevent.jpg",
+    "period": "January 2015 – October 2016",
+    "description": "With the two friends from payutc, we created a unique cashless payment and worked with Weezevent to tailor it for the events industry. This solution is now a leader on the French market and going abroad. I worked on many different tasks, from front-end development to accounting, while also designing custom cases for our devices."
   },
   {
     "id": "wap",
     "name": "Weezevent – WeezAccess",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "url": "https://weezevent.com/en-gb/weezaccess/access-control/",
+    "tags": ["work", "ios", "embedded"],
+    "icon": "../src/images/projects/weezevent.jpg",
+    "period": "February 2014 – December 2014",
+    "description": "I developed B2B applications on iOS. The access control app runs on iPod Touch with a Linea Pro barcode. I upgraded the app to the latest standards and made it more resilient to network issues. The POS app runs on iPad and includes a customized OpenWRT router to print to USB thermal printers."
   },
   {
     "id": "mobileboarding",
     "name": "Amadeus – Mobile Boarding",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["work"],
+    "icon": "../src/images/projects/amadeus.png",
+    "period": "September 2012 – June 2013",
+    "description": "This application allows airplane boarding using Windows Mobile devices with built-in barcode readers. I replaced SOAP Web Services by a dedicated JSON-based protocol to improve performance and allow deployment of the app to customers. This included creating a new C++ backend and updating the C# client."
   },
   {
     "id": "payutc",
     "name": "payutc",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "githubUrl": "https://github.com/payutc",
+    "tags": ["organization", "opensource"],
+    "icon": "../src/images/projects/payutc.png",
+    "period": "February 2012 – October 2013",
+    "description": "payutc is an electronic payment system that has been setup for all the Student Organizations at UTC. It allows student to top-up their account online using their Credit Card and then use the money in organizations by presenting their RFID student card. I initiated this project with two other students and participated on various launch tasks."
   },
   {
     "id": "simde",
     "name": "SiMDE",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "githubUrl": "https://github.com/simde-utc",
+    "tags": ["organization", "sysadmin"],
+    "icon": "../src/images/projects/simde.png",
+    "period": "January 2012 — October 2013",
+    "description": "SiMDE is an organisation at UTC offering various IT services to other organisations. This includes web hosting, email, mailing lists or Active Directory. I was a sysadmin at SiMDE and participated in building a new architecture using OpenVZ containers."
   },
   {
     "id": "etuville",
-    "name": "Etuville",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "name": "Etuville - Ticketing System",
+    "tags": ["organization"],
+    "icon": "../src/images/projects/etuville.png",
+    "period": "October 2011 — November 2011",
+    "description": "Etuville sets up a party with more than 2800 participants every year. During the 2011 edition, I was in charge of creating a new ticketing system, which allowed guests to buy their ticket online and print it from a generated PDF with a barcode. Tickets were then checked at the entrance of the event using a custom software."
   },
   {
     "id": "portail",
-    "name": "Portail Associations BDE-UTC",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "name": "UTC Student Organizations Homepage",
+    "githubUrl": "https://github.com/simde-utc/portail-old",
+    "tags": ["organization", "opensource"],
+    "icon": "../src/images/projects/portail.png",
+    "period": "May 2011 — July 2012",
+    "description": "This homepage is used by more than 100 student organisations at UTC to communicate with all the students through articles or events. This project uses the symfony framework and involved more than 10 developers."
   },
   {
-    "id": "hanzitraining",
+    "id": "fbchina",
     "name": "Hanzi Training",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["education", "facebook"],
+    "icon": "../src/images/projects/fbchina.png",
+    "period": "March 2011 — April 2011",
+    "description": "I designed this Facebook game during my 6-month stay in Shanghai. It helps practicing your Chinese characters by displaying you words and asking for their pinyin notation. This game was also published for the BlackBerry Playbook tablet, under the name Chinese Characters."
   },
   {
     "id": "utcoupe",
     "name": "UTCoupe",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["organization", "robotics"],
+    "url": "https://assos.utc.fr/utcoupe",
+    "icon": "../src/images/projects/utcoupe.jpg",
+    "period": "January 2010 — January 2012",
+    "description": "UTCoupe is the team from UTC participating in the French Cup of Robotics. At UTCoupe, I developed software and electronics for an autonomous robot entering the competition. I was also the team leader during two years. In 2012, the team was ranked 18th out of 170."
   },
   {
     "id": "polar",
     "name": "Le Polar",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["organization"],
+    "url": "https://assos.utc.fr/polar",
+    "icon": "../src/images/projects/polar.png",
+    "period": "January 2010 — January 2012",
+    "description": "Le Polar is a student organisation at UTC, offering services such as printing (from A4 to A0) as well as resale of computer accessories, stationery… At Le Polar, I participated in migrating various software components to one centralized website: accounting, point of sale, inventory…"
   },
   {
-    "id": "mymobilesite",
+    "id": "mobsite",
     "name": "My Mobile Site",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["facebook"],
+    "icon": "../src/images/projects/mobsite.png",
+    "period": "February 2008 — March 2009",
+    "description": "In 2008, Nokia developed a Mobile Web Server running on Symbian smartphones, exposing some of the phone's features to the web. I wrote a facebook application allowing interaction with this software: viewing phone location, sending messages to the phone, displaying pictures on the phone..."
   },
   {
     "id": "graphisme",
     "name": "Graphisme.tk",
-    "url": "",
-    "tags": [],
-    "icon": "../src/images/projects/project.png",
-    "period": "",
-    "description": ""
+    "tags": ["education"],
+    "icon": "../src/images/projects/graphisme.png",
+    "period": "April 2005 — April 2006",
+    "description": "graphisme.tk was one of my first public website. The project was realised in collaboration with a web designer met on the Internet. My task was to write the HTML and CSS using Photoshop files, as well as the PHP/MySQL allowing the website to run and be edited dynamically."
   }
 ]
