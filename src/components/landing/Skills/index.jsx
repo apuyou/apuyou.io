@@ -12,7 +12,7 @@ export const Skills = () => (
       <Details>
         <h2>Software Engineering</h2>
         <p>
-          Full-stack software engineering, including architecture.
+          Full-stack software engineering and cloud architecture.
           <br />
           Python (Django). React. Docker. Serveless.
         </p>
