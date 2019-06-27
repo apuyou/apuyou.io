@@ -1,5 +1,5 @@
 module.exports = {
-  defaultTitle: 'apuyou.io',
+  defaultTitle: 'Arthur Puyou',
   logo: 'https://apuyou.io/favicon/favicon-512.png',
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
@@ -11,6 +11,7 @@ module.exports = {
     linkedin: 'https://www.linkedin.com/in/apuyou',
     producthunt: 'https://www.linkedin.com/in/apuyou',
   },
+  twitterUsername: '@apuyou',
   themeColor: '#4285F4',
   backgroundColor: '#4285F4',
   social: [

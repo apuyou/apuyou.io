@@ -4,15 +4,14 @@ import Thumbnail from 'Static/thumbnail/thumbnail.png';
 import {
   url,
   description as defaultDescription,
-  social,
-  defaultTitle,
-  socialLinks,
+  twitterUsername,
   legalName,
+  socialLinks,
   logo,
 } from 'Data';
 
 export const SEO = ({
-  title = defaultTitle,
+  title = legalName,
   description = defaultDescription,
   location = '',
 }) => {
@@ -45,8 +44,8 @@ export const SEO = ({
       <meta property="og:image" content={Thumbnail} />
 
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={socialLinks.twitter} />
-      <meta name="twitter:site" content={social.twitter} />
+      <meta name="twitter:creator" content={twitterUsername} />
+      <meta name="twitter:site" content={twitterUsername} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image:src" content={Thumbnail} />

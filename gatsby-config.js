@@ -7,7 +7,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: config.defaultTitle,
+    title: config.legalName,
     description: config.description,
     author: config.author,
     ...config,
@@ -60,7 +60,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.defaultTitle,
+        name: config.legalName,
         short_name: 'starter',
         start_url: '/',
         background_color: config.backgroundColor,
