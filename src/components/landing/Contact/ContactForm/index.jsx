@@ -15,7 +15,7 @@ const ContactForm = ({
     name="portfolio-dev"
     method="post"
     data-netlify="true"
-    data-netlify-honeypot="dleiftob"
+    data-netlify-honeypot="password"
   >
     <InputField>
       <Input
@@ -58,12 +58,12 @@ const ContactForm = ({
     </InputField>
     <HiddenInputField>
       <Input
-        id="dleiftob"
-        aria-label="dleiftob"
+        id="password"
+        aria-label="Bot Field"
         component="input"
         as={FastField}
         type="text"
-        name="dleiftob"
+        name="password"
         placeholder="Do not fill this field if you are a human"
       />
     </HiddenInputField>
@@ -90,7 +90,7 @@ export default withFormik({
     name: '',
     email: '',
     message: '',
-    dleiftob: '',
+    password: '',
     success: false,
   }),
   validationSchema: () =>
@@ -102,7 +102,7 @@ export default withFormik({
       message: Yup.string().required('Message field is required'),
     }),
   handleSubmit: async (
-    { name, email, message, dleiftob },
+    { name, email, message, password },
     { setSubmitting, resetForm, setFieldValue }
   ) => {
     try {
@@ -121,7 +121,7 @@ export default withFormik({
           name,
           email,
           message,
-          dleiftob,
+          password,
         }),
       });
       await setSubmitting(false);
