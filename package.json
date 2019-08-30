@@ -5,7 +5,6 @@
   "version": "0.0.1",
   "author": "Arthur Puyou <arthur@puyou.fr>",
   "dependencies": {
-    "amplitude-js": "^5.2.2",
     "dotenv": "^6.2.0",
     "formik": "^1.4.1",
     "gatsby": "^2.13.5",
