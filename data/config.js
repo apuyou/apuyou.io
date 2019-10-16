@@ -9,7 +9,7 @@ module.exports = {
     twitter: 'https://twitter.com/apuyou',
     github: 'https://github.com/apuyou',
     linkedin: 'https://www.linkedin.com/in/apuyou',
-    producthunt: 'https://www.linkedin.com/in/apuyou',
+    producthunt: 'https://www.producthunt.com/@apuyou',
   },
   twitterUsername: '@apuyou',
   themeColor: '#4285F4',
