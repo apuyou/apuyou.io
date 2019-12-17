@@ -4,7 +4,9 @@ import { Intro, Skills, Contact, Projects } from '../components/landing';
 
 export default () => {
   useEffect(() => {
-    window.analytics.track('View homepage');
+    if (window.analytics) {
+      window.analytics.track('View homepage');
+    }
   }, []);
 
   return (
