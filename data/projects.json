@@ -34,7 +34,7 @@
     "id": "hop",
     "name": "Weezevent – Head of Product",
     "url": "https://weezevent.com/",
-    "tags": ["work", "management"],
+    "tags": ["fulltime", "product", "management"],
     "icon": "../src/images/projects/weezevent.png",
     "period": "October 2016 – January 2019",
     "description": "After launching two products successfully, I was appointed as Head of Product and built a product team starting from scratch. This involved recruting 5 Product Managers and setting up multiple processes impacting all services in the company."
@@ -43,7 +43,7 @@
     "id": "cashless",
     "name": "Weezevent – WeezPay",
     "url": "https://weezevent.com/en-gb/weezpay/cashless/",
-    "tags": ["work", "nfc"],
+    "tags": ["fulltime", "startup", "nfc"],
     "icon": "../src/images/projects/weezevent.png",
     "period": "January 2015 – October 2016",
     "description": "With the two friends from payutc, we created a unique cashless payment and worked with Weezevent to tailor it for the events industry. This solution is now a leader on the French market and going abroad. I worked on many different tasks, from front-end development to accounting, while also designing custom cases for our devices."
@@ -52,7 +52,7 @@
     "id": "wap",
     "name": "Weezevent – WeezAccess",
     "url": "https://weezevent.com/en-gb/weezaccess/access-control/",
-    "tags": ["work", "ios", "embedded"],
+    "tags": ["internship", "ios", "embedded"],
     "icon": "../src/images/projects/weezevent.png",
     "period": "February 2014 – December 2014",
     "description": "I developed B2B applications on iOS. The access control app runs on iPod Touch with a Linea Pro barcode. I upgraded the app to the latest standards and made it more resilient to network issues. The POS app runs on iPad and includes a customized OpenWRT router to print to USB thermal printers."
@@ -60,7 +60,7 @@
   {
     "id": "mobileboarding",
     "name": "Amadeus – Mobile Boarding",
-    "tags": ["work"],
+    "tags": ["internship", "embedded"],
     "icon": "../src/images/projects/amadeus.png",
     "period": "September 2012 – June 2013",
     "description": "This application allows airplane boarding using Windows Mobile devices with built-in barcode readers. I replaced SOAP Web Services by a dedicated JSON-based protocol to improve performance and allow deployment of the app to customers. This included creating a new C++ backend and updating the C# client."
