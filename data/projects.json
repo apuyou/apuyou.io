@@ -1,5 +1,42 @@
 [
   {
+    "id": "storebadge",
+    "name": "Store Badge",
+    "url": "https://apuyou.github.io/store-badge/",
+    "tags": ["snippet", "component", "react"],
+    "icon": "../src/images/projects/storebadge.png",
+    "period": "December 2019",
+    "description": "Store Badge displays App Store and/or Google Play badges based on the browser. It is available as a snippet or a React component. This saves valuable screen space on mobile devices for a choice that can be easily done by the machine."
+  },
+  {
+    "id": "pswdapp",
+    "name": "Pswd.app",
+    "url": "https://pswd.app",
+    "tags": ["serverless", "blockchain"],
+    "icon": "../src/images/projects/pswdapp.png",
+    "period": "November 2019",
+    "description": "Pswd.app is a password manager in your browser created by @jsmrcaga. I helped getting it ready for public launch, which included some UI tweaks as well as online promotion. It uses Blockstack's blockchain technology to encrypt all your passwords directly in your browser. No sensitive data is ever transmitted online."
+  },
+  {
+    "id": "lastmx",
+    "name": "LastMX",
+    "url": "https://lastmx.com",
+    "producthuntUrl": "https://www.producthunt.com/posts/lastmx",
+    "tags": ["serverless", "email", "privacy"],
+    "icon": "../src/images/projects/lastmx.png",
+    "period": "October 2019",
+    "description": "We created LastMX with Thomas Recouvreux to allow creation of unique aliases that redirect to the user's personal email address. The real address is never disclosed and send/receive are supported."
+  },
+  {
+    "id": "fotokorner",
+    "name": "Fotokorner",
+    "url": "https://fotokorner.com",
+    "tags": ["serverless", "photo"],
+    "icon": "../src/images/projects/fotokorner.png",
+    "period": "September 2019",
+    "description": "Fotokorner allows professional photographers to expose their porfolio online. It can also be used to send galleries to clients. Photographs are shown in a pleasant grid and prints can be ordered directly."
+  },
+  {
     "id": "cheerswipe",
     "name": "Cheerswipe",
     "url": "https://cheerswipe.com",
@@ -16,7 +53,7 @@
     "url": "https://locationdiary.com",
     "githubUrl": "https://github.com/locationdiary/locationdiary",
     "producthuntUrl": "https://www.producthunt.com/posts/location-diary",
-    "tags": ["sideproject", "serverless"],
+    "tags": ["sideproject", "serverless", "blockchain"],
     "icon": "../src/images/projects/locationdiary.png",
     "period": "May 2019",
     "description": "Location Diary was created for the Blockstack App Mining constest. It allows users to record their location history in a decentralized storage backed by blockchain."
@@ -25,7 +62,7 @@
     "id": "buda",
     "name": "Buda Gallery",
     "url": "https://buda.gallery",
-    "tags": ["sideproject", "serverless"],
+    "tags": ["sideproject", "serverless", "photo"],
     "icon": "../src/images/projects/buda.png",
     "period": "April 2019 – May 2019",
     "description": "I created this app as I couldn't find an easy way to share my travel pictures with friends and family. Buda Gallery is extremely simple: visit the site, upload your pictures and you immediately get a link to share it. That's all :)"
