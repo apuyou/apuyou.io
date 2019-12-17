@@ -1,10 +1,6 @@
 const path = require('path');
 const config = require('./data/config');
 
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
-
 module.exports = {
   siteMetadata: {
     title: config.legalName,
