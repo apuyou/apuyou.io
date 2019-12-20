@@ -29,6 +29,15 @@
     "description": "We created LastMX with Thomas Recouvreux to allow creation of unique aliases that redirect to the user's personal email address. The real address is never disclosed and send/receive are supported."
   },
   {
+    "id": "aristide",
+    "name": "Aristide Collection",
+    "url": "https://aristide-collection.com",
+    "tags": ["agency", "animation", "ecommerce"],
+    "icon": "../src/images/projects/aristide.png",
+    "period": "August 2019 – September 2019",
+    "description": "I worked on improving the Aristide ecommerce website, with an updated design by Bonjour Paris. This included CSS animations and some innovative navigation elements, all built on top of the existing technical stack."
+  },
+  {
     "id": "fotokorner",
     "name": "Fotokorner",
     "url": "https://fotokorner.com",
