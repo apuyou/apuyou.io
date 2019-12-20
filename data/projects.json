@@ -3,6 +3,7 @@
     "id": "storebadge",
     "name": "Store Badge",
     "url": "https://apuyou.github.io/store-badge/",
+    "producthuntUrl": "http://producthunt.com/posts/store-badge",
     "tags": ["snippet", "component", "react"],
     "icon": "../src/images/projects/storebadge.png",
     "period": "December 2019",
