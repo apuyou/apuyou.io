@@ -35,6 +35,14 @@ yarn
 yarn start
 ```
 
+## Start Netlify dev server
+
+Used to test serverless functions.
+
+```bash
+npx netlify-cli dev
+```
+
 ### Clean the cache
 
 This removes the `.cache/` & `public/` folders
