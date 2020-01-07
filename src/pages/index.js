@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
-import { Layout, SEO } from '../components/common';
-import { Intro, Skills, Contact, Projects } from '../components/landing';
 import axios from 'axios';
 import uuid from 'uuid/v4';
+
+import { Layout, SEO } from '../components/common';
+import { Intro, Skills, Contact, Projects } from '../components/landing';
+import Blog from '../components/landing/blog';
 
 export default () => {
   useEffect(() => {
@@ -18,6 +20,7 @@ export default () => {
     <Layout>
       <SEO />
       <Intro />
+      <Blog />
       <Projects />
       <Skills />
       <Contact />
