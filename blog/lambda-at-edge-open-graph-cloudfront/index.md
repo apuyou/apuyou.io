@@ -2,10 +2,8 @@
 title: Generating dynamic Open Graph for an SPA with AWS CloudFront
 date: 2020-01-06T22:12:14.136Z
 description: Hello World
-path: /dynamic-open-graph-spa-cloudfront
+slug: dynamic-open-graph-spa-cloudfront
 ---
-
-# Adding dynamic Open Graph markup in a React app served by CloudFront
 
 ## Motivations
 

@@ -23,7 +23,7 @@ export default function Blog() {
             frontmatter {
               title
               date(formatString: "DD MMMM YYYY")
-              path
+              slug
             }
           }
         }
@@ -65,7 +65,7 @@ export default function Blog() {
                 </Header>
                 <p>{post.excerpt}</p>
                 <Links>
-                  <Link to={post.frontmatter.path}>Read →</Link>
+                  <Link to={`blog/${post.frontmatter.slug}`}>Read →</Link>
                 </Links>
               </Content>
             </Card>
