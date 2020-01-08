@@ -1,25 +1,49 @@
 const axios = require('axios');
 
 exports.handler = async function(event, context) {
-  const { API_KEY } = process.env;
-  const ipAddress = '2601:8:be00:cf20:ca60:ff:fe09:35b5';
-  const URL = `https://api.ipdata.co/${ipAddress}?api-key=${API_KEY}`;
+  const ipAddress = event.headers['client-ip'];
+  if (!ipAddress) {
+    return {
+      statusCode: error.response.status,
+      body: JSON.stringify({ status: 'skip' }),
+    };
+  }
 
-  console.log('Constructed URL is ...', URL);
+  let status = 'ok';
 
+  // Send hit to Amplitude
   try {
+    // TODO send to Amplitude
+  } catch (error) {
+    console.error(
+      'Failed sending to Amplitude',
+      error.response.status,
+      error.response.data
+    );
+    status = 'error';
+  }
+
+  // Resolve IP details and post to Slack
+  try {
+    const { IPDATA_API_KEY } = process.env;
+    const URL = `https://api.ipdata.co/${ipAddress}?api-key=${IPDATA_API_KEY}`;
+    console.log('IPData URL', URL);
+
     const { data } = await axios.get(URL);
     console.log('Received data for IP', ipAddress, data);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ status: 'ok' }),
-    };
+    // TODO send to slack
   } catch (error) {
-    console.error('IPData query failed', JSON.stringify(error.response));
-    return {
-      statusCode: error.response.status,
-      body: JSON.stringify({ status: 'error' }),
-    };
+    console.error(
+      'IPData query failed',
+      error.response.status,
+      error.response.data
+    );
+    status = 'error';
   }
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ status }),
+  };
 };
