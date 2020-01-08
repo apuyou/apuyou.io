@@ -5,9 +5,6 @@ import axios from 'axios';
 
 export default () => {
   useEffect(() => {
-    if (window.analytics) {
-      window.analytics.track('View homepage');
-    }
     axios.get('/.netlify/functions/view');
   }, []);
 
