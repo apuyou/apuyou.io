@@ -1,4 +1,6 @@
 const axios = require('axios');
+const UAParserJs = require('ua-parser-js');
+const uuid = require('uuid/v4');
 
 exports.handler = async function(event, context) {
   const ipAddress = event.headers['client-ip'];
@@ -13,7 +15,31 @@ exports.handler = async function(event, context) {
 
   // Send hit to Amplitude
   try {
-    // TODO send to Amplitude
+    const amplitudeData = {
+      api_key: process.env.AMPLITUDE_API_KEY,
+      events: [
+        {
+          device_id: uuid(),
+          event_type: 'view homepage',
+          ip: ipAddress,
+          platform: 'Web',
+          insert_id: uuid(),
+        },
+      ],
+    };
+    if (event.headers['user-agent']) {
+      const ua = UAParserJs(event.headers['user-agent']);
+      amplitudeData.events[0].os_name = ua.browser.name;
+      amplitudeData.events[0].os_version = ua.browser.version;
+      amplitudeData.events[0].device_model = ua.os.name;
+    }
+
+    console.log('Sending data to Amplitude', amplitudeData);
+    const { data } = await axios.post(
+      'https://api.amplitude.com/2/httpapi',
+      amplitudeData
+    );
+    console.log('Received data from Amplitude', data);
   } catch (error) {
     console.error(
       'Failed sending to Amplitude',
