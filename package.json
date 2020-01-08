@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "author": "Arthur Puyou <arthur@puyou.fr>",
   "dependencies": {
+    "axios": "^0.19.1",
     "formik": "^2.0.8",
     "gatsby": "^2.13.5",
     "gatsby-image": "^2.0.20",
@@ -21,6 +22,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.8",
+    "netlify-lambda": "^1.6.3",
     "prop-types": "^15.6.2",
     "react": "^16.8.6",
     "react-anchor-link-smooth-scroll": "^1.0.11",
@@ -38,7 +40,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "netlify-lambda build functions && gatsby build",
     "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "reset": "rm -rf .cache/ public/",
