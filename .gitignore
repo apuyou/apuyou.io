@@ -67,3 +67,6 @@ yarn-error.log
 
 # Netlify bundled functions
 .functions
+
+# Local Netlify folder
+.netlify
