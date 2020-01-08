@@ -12,6 +12,7 @@ exports.handler = async function(event, context) {
   }
 
   let status = 'ok';
+  const deviceId = uuid();
 
   // Send hit to Amplitude
   try {
@@ -19,7 +20,7 @@ exports.handler = async function(event, context) {
       api_key: process.env.AMPLITUDE_API_KEY,
       events: [
         {
-          device_id: uuid(),
+          device_id: deviceId,
           event_type: 'view homepage',
           ip: ipAddress,
           platform: 'Web',
@@ -41,11 +42,15 @@ exports.handler = async function(event, context) {
     );
     console.log('Received data from Amplitude', data);
   } catch (error) {
-    console.error(
-      'Failed sending to Amplitude',
-      error.response.status,
-      error.response.data
-    );
+    if (error.response) {
+      console.error(
+        'Request Amplitude failed',
+        error.response.status,
+        error.response.data
+      );
+    } else {
+      console.error(error);
+    }
     status = 'error';
   }
 
@@ -55,16 +60,29 @@ exports.handler = async function(event, context) {
     const URL = `https://api.ipdata.co/${ipAddress}?api-key=${IPDATA_API_KEY}`;
     console.log('IPData URL', URL);
 
-    const { data } = await axios.get(URL);
-    console.log('Received data for IP', ipAddress, data);
+    const { data: dataIpdata } = await axios.get(URL);
+    console.log('Received data from Ipdata for IP', ipAddress, dataIpdata);
 
-    // TODO send to slack
-  } catch (error) {
-    console.error(
-      'IPData query failed',
-      error.response.status,
-      error.response.data
+    const slackData = {
+      text: `New page view by device ${deviceId} from IP ${ipAddress} (${dataIpdata.city}, ${dataIpdata.region}, ${dataIpdata.country_name} ${dataIpdata.emoji_flag}) owned by ${dataIpdata.asn.name} (${dataIpdata.asn.domain})`,
+      username: 'Statbot',
+      icon_emoji: ':mag:',
+    };
+    const { data: dataSlack } = axios.post(
+      process.env.SLACK_WEBHOOK_URL,
+      slackData
     );
+    console.log('Received data from Slack', dataSlack);
+  } catch (error) {
+    if (error.response) {
+      console.error(
+        'Request Ipdata/Slack failed',
+        error.response.status,
+        error.response.data
+      );
+    } else {
+      console.error(error);
+    }
     status = 'error';
   }
 
