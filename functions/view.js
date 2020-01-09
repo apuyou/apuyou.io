@@ -11,8 +11,16 @@ exports.handler = async function(event, context) {
     };
   }
 
+  const parsedBody = JSON.parse(event.body);
+  const uuidMatcher = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
+  const deviceId =
+    parsedBody &&
+    parsedBody.device_id &&
+    parsedBody.device_id.match(uuidMatcher)
+      ? parsedBody.device_id
+      : uuid();
+
   let status = 'ok';
-  const deviceId = uuid();
 
   // Send hit to Amplitude
   try {
