@@ -76,7 +76,7 @@ exports.handler = async function(event, context) {
       username: 'Statbot',
       icon_emoji: ':mag:',
     };
-    const { data: dataSlack } = axios.post(
+    const { data: dataSlack } = await axios.post(
       process.env.SLACK_WEBHOOK_URL,
       slackData
     );
