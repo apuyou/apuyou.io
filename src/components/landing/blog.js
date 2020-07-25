@@ -51,10 +51,14 @@ export default function Blog() {
               <Content>
                 <Header>
                   <div>
-                    <Img fixed={data.file.childImageSharp.fixed} />
+                    <Link to={`blog/${post.frontmatter.slug}/`}>
+                      <Img fixed={data.file.childImageSharp.fixed} />
+                    </Link>
                   </div>
                   <div>
-                    <h3>{post.frontmatter.title}</h3>
+                    <Link to={`blog/${post.frontmatter.slug}/`}>
+                      <h3>{post.frontmatter.title}</h3>
+                    </Link>
                     <p>{post.frontmatter.date}</p>
                     <p>
                       {/* {node.tags.map(tag => (
@@ -65,7 +69,7 @@ export default function Blog() {
                 </Header>
                 <p>{post.excerpt}</p>
                 <Links>
-                  <Link to={`blog/${post.frontmatter.slug}`}>Read →</Link>
+                  <Link to={`blog/${post.frontmatter.slug}/`}>Read →</Link>
                 </Links>
               </Content>
             </Card>
