@@ -1,0 +1,121 @@
+---
+title: Using Mixpanel in a Gatsby app
+date: 2020-07-26T22:25:01.246Z
+description: Hello World
+slug: mixpanel-gatsby
+---
+
+In this post, we will setup a Gatsby application for Mixpanel, using React Hooks and the official Mixpanel JS package. For advanced usage, you should probably look at React integrations or even Gatsby plugins. These will handle stuff such as page views on page change automatically.
+
+However, if you only need a few calls to Mixpanel and want to avoid extra packages, here is a simple way to do it. This is an excellent use case for a React Context.
+
+# 1. Add the official Mixpanel package
+
+We still need the official Mixpanel package to call Mixpanel's API. This package is called `mixpanel-browser`. You need to run the following command at the root of your project to install it.
+
+If you are using NPM:
+
+```bash
+npm install mixpanel-browser
+```
+
+If you are using Yarn:
+
+```bash
+yarn add mixpanel-browser
+```
+
+# 2. Create the Context
+
+To share our Mixpanel instance between components, we will use a React Context. Contexts allow a specific value to be shared between components nested under the same provider.
+
+First, we need to create the context, which will initialise a unique reference to it.
+
+Create a file in `src/tracking.js` and add the following content:
+
+```jsx
+import React from 'react';
+
+export const MixpanelContext = React.createContext();
+```
+
+# 3. Create the Context Provider
+
+Now that we have a reference, let's create the provider. We need this provider to wrap all our page components. For this, we will use the [wrapRootElement](https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement) in the Gatsby Browser APIs.
+
+The value that we will set for our context is the actual Mixpanel instance, so we'll do all its setup right here.
+
+Create or open the `gatsby-browser.js` file at the root of your project and add the following. If the file already exists, you'll need to leave the rest untouched.
+
+```jsx
+import React from 'react';
+import mixpanel from 'mixpanel-browser';
+
+import { MixpanelContext } from './src/tracking';
+
+export const wrapRootElement = ({ element }) => {
+  mixpanel.init('MIXPANEL_KEY');
+  if (process.env.NODE_ENV !== 'production') {
+    mixpanel.disable();
+  }
+
+  return (
+    <MixpanelContext.Provider value={mixpanel}>
+      {element}
+    </MixpanelContext.Provider>
+  );
+};
+```
+
+Replace `MIXPANEL_KEY` with the actual project token. You can find it in your Mixpanel project, by going to _Settings → Set up Mixpanel_, then choosing _JavaScript_ and the _NPM_ install method. It should be a string that looks like the following: `32a6b5b7d4ca3bc0520809e3f5563e0e`.
+
+If the `wrapRootElement` method is already used, you should copy the Mixpanel code just before returning. Then, add the `<MixpanelContext.Provider>` around the existing returned JSX.
+
+# 4. Use Mixpanel on your page
+
+Now that our Context has a ready to use instance of Mixpanel, we can retrieve it using the `useContext` hook. This hook takes one parameter: the context reference that we set up during step 2.
+
+```jsx
+import React, { useContext, useEffect } from 'react';
+
+import { MixpanelContext } from '../tracking';
+
+export default function IndexPage() {
+  const mixpanel = useContext(MixpanelContext);
+
+  // Runs once, after page load
+  useEffect(() => {
+    mixpanel.track('Load homepage');
+  }, [mixpanel]);
+
+  const something = () => {
+    // Runs when the button is clicked
+    mixpanel.track('Click button');
+  };
+
+  return (
+    <div>
+      Hello World!
+      <button onClick={something}>Do something</button>
+    </div>
+  );
+}
+```
+
+# 5. Bonus : Move the Mixpanel project token to an environment variable
+
+Although the project token is public and accessible by the client, it's always cleaner to store configuration variables in the environment. This allows them to be changed easily later when publishing to a different environment.
+
+Create or open the `.env` file at the root of your project and add the following line:
+
+```jsx
+GATSBY_MIXPANEL_TOKEN=32a6b5b7d4ca3bc0520809e3f5563e0e
+```
+
+Replace the token with yours. The name of the environment variable should start with `GATSBY_` so that Gatsby exposes it publicly. Then, update the init line in the `gatsby-browser.js` file:
+
+```jsx
+mixpanel.init(process.env.GATSBY_MIXPANEL_TOKEN);
+```
+
+Note that you will need to restart your dev server for the new variable to be available.
