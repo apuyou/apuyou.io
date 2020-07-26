@@ -1,5 +1,5 @@
 import React from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Container, Button } from '../../common';
 import maker from '../../../../static/illustrations/maker.svg';
@@ -24,7 +24,7 @@ export const Intro = () => {
         <Details>
           <h1>Hi!</h1>
           <h4>{data.site.siteMetadata.description}</h4>
-          <Button as={AnchorLink} href="#contact">
+          <Button as={AnchorLink} to="/#contact">
             Contact me
           </Button>
         </Details>

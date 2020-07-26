@@ -13,7 +13,6 @@ export default function Template({ data }) {
     <Layout>
       <SEO />
       <Header />
-      {/* TODO Make it specific to blog posts (back to list & back to home) */}
       <Container>
         <div className="blog-post-container">
           <Helmet title={`Your Blog Name - ${post.frontmatter.title}`} />

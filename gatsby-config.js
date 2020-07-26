@@ -57,6 +57,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-anchor-links',
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
