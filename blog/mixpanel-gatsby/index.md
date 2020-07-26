@@ -1,6 +1,6 @@
 ---
 title: Using Mixpanel in a Gatsby app
-date: 2020-07-26T22:25:01.246Z
+date: 2020-07-24T22:25:01.246Z
 description: Hello World
 slug: mixpanel-gatsby
 icon: mixpanel-gatsby.png
