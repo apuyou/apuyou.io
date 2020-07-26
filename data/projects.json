@@ -1,5 +1,23 @@
 [
   {
+    "id": "misenprod",
+    "name": "Waycom – Technician App",
+    "url": "https://www.waycom.net/",
+    "tags": ["fullstack", "django", "angular"],
+    "icon": "../src/images/projects/waycom.png",
+    "period": "May 2020",
+    "description": "Waycom is a Telecommunications Company dedicated to the retail market. I created a new version of the web app used by on-site technicians. This app delivers instructions to the technician based on the customer and allows them to report the status of their work."
+  },
+  {
+    "id": "orvea",
+    "name": "Orvéa",
+    "url": "https://orvea.fr/",
+    "tags": ["gatsby", "static", "prismic"],
+    "icon": "../src/images/projects/orvea.png",
+    "period": "January 2020",
+    "description": "Orvéa is a company offering Site Facilities services. I built their public website using Gatsby, which generates static HTML pages from a React project. Content for the blog is pulled from the Prismic CMS, allowing the client to update the site."
+  },
+  {
     "id": "storebadge",
     "name": "Store Badge",
     "url": "https://apuyou.github.io/store-badge/",
@@ -76,6 +94,15 @@
     "icon": "../src/images/projects/buda.png",
     "period": "April 2019 – May 2019",
     "description": "I created this app as I couldn't find an easy way to share my travel pictures with friends and family. Buda Gallery is extremely simple: visit the site, upload your pictures and you immediately get a link to share it. That's all :)"
+  },
+  {
+    "id": "teamap",
+    "name": "Waycom – Project Management App",
+    "url": "https://www.waycom.net/",
+    "tags": ["react", "frontend", "ux"],
+    "icon": "../src/images/projects/waycom.png",
+    "period": "March 2020",
+    "description": "Waycom is a Telecommunications Company dedicated to the retail market. I developed the fronted of an internal Project Management tool to monitor deployments. Projects with large number of sites required innovative ways of displaying data."
   },
   {
     "id": "hop",
@@ -187,6 +214,6 @@
     "tags": ["education"],
     "icon": "../src/images/projects/graphisme.png",
     "period": "April 2005 — April 2006",
-    "description": "graphisme.tk was one of my first public website. The project was realised in collaboration with a web designer met on the Internet. My task was to write the HTML and CSS using Photoshop files, as well as the PHP/MySQL allowing the website to run and be edited dynamically."
+    "description": "graphisme.tk was one of my first public websites. The project was created in collaboration with a web designer met on the Internet. My task was to write the HTML and CSS using Photoshop files, as well as the PHP/MySQL allowing the website to run and be edited dynamically."
   }
 ]
