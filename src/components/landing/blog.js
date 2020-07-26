@@ -24,6 +24,13 @@ export default function Blog() {
               title
               date(formatString: "DD MMMM YYYY")
               slug
+              icon {
+                childImageSharp {
+                  fixed(width: 64, height: 64) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
             }
           }
         }
@@ -52,7 +59,12 @@ export default function Blog() {
                 <Header>
                   <div>
                     <Link to={`blog/${post.frontmatter.slug}/`}>
-                      <Img fixed={data.file.childImageSharp.fixed} />
+                      <Img
+                        fixed={
+                          post.frontmatter.icon?.childImageSharp?.fixed ||
+                          data.file.childImageSharp.fixed
+                        }
+                      />
                     </Link>
                   </div>
                   <div>
