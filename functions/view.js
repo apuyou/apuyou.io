@@ -29,7 +29,12 @@ exports.handler = async function(event, context) {
       events: [
         {
           device_id: deviceId,
-          event_type: 'view homepage',
+          event_type: parsedBody.post ? 'view post' : 'view homepage',
+          event_properties: parsedBody.post
+            ? {
+                title: parsedBody.post,
+              }
+            : {},
           ip: ipAddress,
           platform: 'Web',
           insert_id: uuid(),

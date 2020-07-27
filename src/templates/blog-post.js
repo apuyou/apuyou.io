@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import uuid from 'uuid/v4';
 import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-solarizedlight.css';
 import { legalName } from 'Data';
@@ -8,6 +10,18 @@ import { Header } from '../components/theme';
 
 export default function Template({ data }) {
   const { markdownRemark: post } = data;
+
+  useEffect(() => {
+    let deviceId = localStorage.getItem('device-id');
+    if (!deviceId) {
+      deviceId = uuid();
+      localStorage.setItem('device-id', deviceId);
+    }
+    axios.post('/.netlify/functions/view', {
+      device_id: deviceId,
+      post: post.frontmatter.title,
+    });
+  }, [post]);
 
   return (
     <Layout>
