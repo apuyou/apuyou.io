@@ -12,11 +12,13 @@ export default function Template({ data }) {
 
   return (
     <Layout>
-      <SEO />
+      <SEO
+        title={`${post.frontmatter.title} - ${legalName}`}
+        description={post.excerpt}
+      />
       <Header />
       <Container>
         <div>
-          <Helmet title={`${post.frontmatter.title} - ${legalName}`} />
           <div className="blog-post">
             <h1>{post.frontmatter.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -31,6 +33,7 @@ export const pageQuery = graphql`
   query BlogPostByPath($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
+      excerpt(pruneLength: 250)
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
