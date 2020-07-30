@@ -35,6 +35,11 @@ exports.handler = async function(event, context) {
                 title: parsedBody.post,
               }
             : {},
+          user_properties: parsedBody.referrer
+            ? {
+                referrer: parsedBody.referrer,
+              }
+            : {},
           ip: ipAddress,
           platform: 'Web',
           insert_id: uuid(),

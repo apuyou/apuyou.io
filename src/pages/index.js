@@ -13,7 +13,10 @@ export default () => {
       deviceId = uuid();
       localStorage.setItem('device-id', deviceId);
     }
-    axios.post('/.netlify/functions/view', { device_id: deviceId });
+    axios.post('/.netlify/functions/view', {
+      device_id: deviceId,
+      referrer: document.referrer,
+    });
   }, []);
 
   return (

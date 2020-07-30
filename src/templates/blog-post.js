@@ -19,6 +19,7 @@ export default function Template({ data }) {
     }
     axios.post('/.netlify/functions/view', {
       device_id: deviceId,
+      referrer: document.referrer,
       post: post.frontmatter.title,
     });
   }, [post]);
