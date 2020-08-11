@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 
 import { Layout, SEO } from '../components/common';
 import { Intro, Skills, Contact, Projects } from '../components/landing';

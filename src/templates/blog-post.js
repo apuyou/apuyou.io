@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import { graphql } from 'gatsby';
 import 'prismjs/themes/prism-solarizedlight.css';
 import { legalName } from 'Data';

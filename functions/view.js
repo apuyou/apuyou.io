@@ -1,6 +1,6 @@
 const axios = require('axios');
 const UAParserJs = require('ua-parser-js');
-const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 
 exports.handler = async function(event, context) {
   const ipAddress = event.headers['client-ip'];
