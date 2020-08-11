@@ -11,7 +11,7 @@
   {
     "id": "orvea",
     "name": "Orvéa",
-    "url": "https://orvea.fr/",
+    "url": "https://www.orvea.fr/",
     "tags": ["gatsby", "static", "prismic"],
     "icon": "../src/images/projects/orvea.png",
     "period": "January 2020",
