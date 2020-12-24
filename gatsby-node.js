@@ -9,7 +9,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
-        filter: { frontmatter: { draft: { ne: true } } }
         limit: 1000
       ) {
         edges {
