@@ -1,10 +1,12 @@
 import React from 'react';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import { useStaticQuery, graphql } from 'gatsby';
+
 import { Container, Button } from '../../common';
 import maker from '../../../../static/illustrations/maker.svg';
 import { Header } from '../../theme';
 import { Wrapper, IntroWrapper, Details, Thumbnail } from './styles';
+
 
 export const Intro = () => {
   const data = useStaticQuery(graphql`
@@ -24,7 +26,11 @@ export const Intro = () => {
         <Details>
           <h1>Hi!</h1>
           <h4>{data.site.siteMetadata.description}</h4>
-          <Button as={AnchorLink} to="/#contact">
+          <Button 
+          as={AnchorLink}
+           to="/#contact"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}>
             Contact me
           </Button>
         </Details>

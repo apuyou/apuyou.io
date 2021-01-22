@@ -51,13 +51,18 @@ export default function Blog() {
 
   const { edges: posts } = data.allMarkdownRemark;
 
+  const list = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
   return (
     <Wrapper as={Container} id="blog">
       <h2>Blog</h2>
       <Grid>
         {posts.map(({ node: post }) => (
           <Item key={post.id}>
-            <Card>
+            <Card variants={list} initial="hidden" animate="visible">
               <Content>
                 <Header>
                   <div>
