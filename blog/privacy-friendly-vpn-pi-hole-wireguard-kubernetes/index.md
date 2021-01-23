@@ -1,6 +1,6 @@
 ---
 title: Run your own privacy-friendly VPN with Pi-Hole and WireGuard on Kubernetes
-date: 2020-12-11T19:53:52.123Z
+date: 2021-01-23T19:53:52.123Z
 description: In this article, we'll set up Pi-Hole to run in Kubernetes. We will also configure Wireguard so that you can connect securely to your Pi-Hole. This will encrypt all your traffic, not just DNS!
 slug: privacy-friendly-vpn-pi-hole-wireguard-kubernetes
 icon: privacy-friendly-vpn-pi-hole-wireguard-kubernetes.png
