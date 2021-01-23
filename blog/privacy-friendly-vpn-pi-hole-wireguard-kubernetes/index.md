@@ -3,11 +3,10 @@ title: Run your own privacy-friendly VPN with Pi-Hole and WireGuard on Kubernete
 date: 2020-12-11T19:53:52.123Z
 description: In this article, we'll set up Pi-Hole to run in Kubernetes. We will also configure Wireguard so that you can connect securely to your Pi-Hole. This will encrypt all your traffic, not just DNS!
 slug: privacy-friendly-vpn-pi-hole-wireguard-kubernetes
-draft: True
-# icon: serverless-graphql-apollo-server-nextjs.png
+icon: privacy-friendly-vpn-pi-hole-wireguard-kubernetes.png
 ---
 
-[Pi-Hole](https://pi-hole.net) is great tool to protect your privacy by filtering requests at the DNS level. It was made to be set-up on a Raspberry Pi inside your home network, but then how can you stay protected when you're on the move?
+[Pi-Hole](https://pi-hole.net) is great tool to protect your privacy by filtering requests at the DNS level. It was made to be set-up on a Raspberry Pi running in your home, but how can you stay protected when you're on the move?
 
 In this article, we'll set up Pi-Hole to run in Kubernetes. We will also configure Wireguard so that you can connect securely to your Pi-Hole. This will encrypt all your traffic, not just DNS!
 
@@ -109,9 +108,9 @@ The first two sections create two 1GB volumes for PiHole data.
 
 The third section is the deployment of Pi-Hole itself:
 
-- the Docker image is `pihole/pihole:latest`. If you want to handle upgrades manually, you can replace this with a specific version [such](http://such.as) as `pihole/pihole:v5.2.1`.
+- the Docker image is `pihole/pihole:latest`. If you want to handle upgrades manually, you can replace this with a specific version such as `pihole/pihole:v5.2.1`.
 - Environment variables allow you to customise some settings. You can see all available options [here](https://github.com/pi-hole/docker-pi-hole/#environment-variables). You should **at least change the password**.
-- `/etc/pihole` and `/etc/dnsmasq.d` are mounted to the two previous persistant volumes we created. Dnsmasq is a DNS server used by Pi-Hole and its configuration needs to be persisted.
+- `/etc/pihole` and `/etc/dnsmasq.d` are mounted to the two persistent volumes we created previously. Dnsmasq is a DNS server used by Pi-Hole and its configuration needs to be persisted.
 
 The last section is the service that will expose PiHole's web interface and DNS server to the Kubernetes network. We're setting the IP address to `10.41.0.2` but you can change this if you already have other services in your cluster.
 
@@ -129,9 +128,7 @@ Wireguard is a recent solution with great clients on multiple platforms.
 
 ## Download a client
 
-You can find clients for most platforms
-
-On recent Ubuntu/Debian distributions, you can find WireGuard as a package:
+On recent Ubuntu/Debian distributions, you can install WireGuard as a package:
 
 ```yaml
 sudo apt install wireguard
@@ -151,11 +148,11 @@ wg genkey | tee privatekey | wg pubkey > publickey
 
 This will generate two files with pretty clear names.
 
-If you're on macOS, you can click on the WireGuard icon > Manage Tunnels > + > Add Empty Tunnel…
+If you're on macOS, you can click on the WireGuard icon > _Manage Tunnels_ > _+_ > _Add Empty Tunnel…_
 
-![Run%20your%20own%20privacy-friendly%20VPN%20with%20Pi-Hole%20and%20e7a952203c2a47528184327075f01747/Untitled.png](Run%20your%20own%20privacy-friendly%20VPN%20with%20Pi-Hole%20and%20e7a952203c2a47528184327075f01747/Untitled.png)
+![Generating a Private Key on macOS](macos-key.png)
 
-You can copy the Private key and Public key fields to a file then discard this configuration. We only needed this step to generate a key.
+You can copy the Private key and Public key fields to a file then click _Discard_. We need these values to configure the server but do not need to store them on your Mac.
 
 ## Create the client configuration
 
@@ -282,9 +279,7 @@ The third section is the deployment itself. A few notes here:
 - An _initContainer_ is used to change some network settings on the host. Also, the WireGuard container itself will have some high privileges in order to manipulate network interfaces. You should take this in consideration if your Kubernetes cluster has some other services running on it.
 - Configuration files and private key are retrieved from the previously defined sections.
 
-Finally, a service is defined so that your WireGuard deployment is accessible. The ClusterIP allows it to be able to talk with the Pi-Hole deployment.
-
-The _nodePort_ allows the service to be accessible directly through the node's public IP.
+Finally, a service is defined so that your WireGuard deployment is accessible. The ClusterIP allows it to be able to talk with the Pi-Hole deployment. The _nodePort_ allows the service to be accessible directly through the node's public IP.
 
 Once again, you can start the service with:
 
@@ -296,7 +291,7 @@ kubectl apply -f pihole.yaml
 
 Now that your gateway is ready, you can configure your client.
 
-If you are using the CLI, you should create the following file in `/etc/wg0.conf`. With graphical clients, you can just copy/paste it in the settings.
+If you are using the CLI, you should create the following file in `/etc/wg0.conf`. With GUI clients, you can just copy/paste it in the settings.
 
 ```
 [Interface]
@@ -311,12 +306,12 @@ AllowedIPs = 0.0.0.0/0
 Endpoint = server.example.com:32154
 ```
 
-Interface defines the client-side configuration. The address is the one you have defined, and the Private Key the one that was generated earlier for the client. The DNS setting is the one that will send all DNS traffic to Pi-Hole.
+Interface defines the client-side configuration. The _Address_ is the IP Address assigned manually to your client. The _PrivateKey_ is specific to this client and should match the _PublicKey_ set in the server configuration. The _DNS_ setting tells WireGuard to send DNS queries to the Pi-Hole.
 
-Peer defines the gateway settings that the client will connect to. Add the Gateway Public Key here and replace the endpoint's address. AllowedIPs defines which IP addresses will be routed through the VPN. You have two options here:
+_Peer_ defines the gateway that the client will connect to. Add the Gateway _PublicKey_ here and replace its hostname and port so that your client can find it. _AllowedIPs_ defines which IP addresses will be routed through the VPN. You have two options here:
 
-- If you want all traffic to be encrypted, keep `0.0.0.0/0`. This is much safer but also means that your connection will depend on your gateway's bandwidth. This may also be more expensive if you are paying for traffic.
-- If you only want requests for Pi-Hole to be sent through the VPN, replace this value with `10.41.1.0/24`.
+- If you want all traffic to be encrypted, keep `0.0.0.0/0`. This is much safer but also means that your connection will depend on your gateway's bandwidth. This may also be more expensive if you are paying for traffic on the gateway side (this is often the case on Cloud environments).
+- If you only want DNS requests to be sent through the VPN, set this value to `10.41.1.0/24`: this is Pi-Hole's IP Address.
 
 You can now connect the tunnel using the buttons from your graphical client or by running:
 
@@ -324,4 +319,4 @@ You can now connect the tunnel using the buttons from your graphical client or b
 wg-quick wg0 up
 ```
 
-Once the VPN is up, you can check your Pi-Hole dashboard at [http://10.41.0.2/admin/](http://10.41.0.2/admin/).
+Once the VPN is up, you can view the Pi-Hole dashboard at [http://10.41.0.2/admin/](http://10.41.0.2/admin/).
