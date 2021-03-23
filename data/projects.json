@@ -98,7 +98,6 @@
   {
     "id": "buda",
     "name": "Buda Gallery",
-    "url": "https://buda.gallery",
     "tags": ["sideproject", "serverless", "photo"],
     "icon": "../src/images/projects/buda.png",
     "period": "April 2019 – May 2019",
