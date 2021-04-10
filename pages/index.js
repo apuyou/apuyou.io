@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 
-import Layout from 'components/layout';
 import Intro from 'components/intro';
 
 export default function HomePage() {
@@ -17,8 +16,8 @@ export default function HomePage() {
   // }, []);
 
   return (
-    <Layout>
+    <>
       <Intro />
-    </Layout>
+    </>
   );
 }
