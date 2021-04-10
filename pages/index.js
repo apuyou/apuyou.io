@@ -1,6 +1,7 @@
-import React from 'react';
+/** @jsxImportSource theme-ui */
 
 import Layout from 'components/layout';
+import Intro from 'components/intro';
 
 export default function HomePage() {
   // useEffect(() => {
@@ -15,5 +16,9 @@ export default function HomePage() {
   //   });
   // }, []);
 
-  return <Layout>Hi</Layout>;
+  return (
+    <Layout>
+      <Intro />
+    </Layout>
+  );
 }
