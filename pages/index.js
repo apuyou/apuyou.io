@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { v4 as uuid } from 'uuid';
+import React from 'react';
+
+import Layout from 'components/layout';
 
 export default function HomePage() {
   // useEffect(() => {
@@ -15,5 +15,5 @@ export default function HomePage() {
   //   });
   // }, []);
 
-  return 'Hi';
+  return <Layout>Hi</Layout>;
 }
