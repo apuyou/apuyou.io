@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+import Header from 'components/header';
+
 export default function Layout({ children }) {
   return (
     <div
@@ -8,7 +10,7 @@ export default function Layout({ children }) {
         marginX: 'auto',
       })}
     >
-      <div>Header</div>
+      <Header />
       {children}
     </div>
   );

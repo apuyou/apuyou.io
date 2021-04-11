@@ -5,6 +5,7 @@ export default {
     heading: 'Rosario, serif',
     monospace: 'Menlo, monospace',
   },
+  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
     body: 400,
     heading: 700,
