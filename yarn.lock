@@ -1778,6 +1778,16 @@
     ts-node "^9"
     tslib "^2"
 
+"@fontsource/crimson-text@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/crimson-text/-/crimson-text-4.2.2.tgz#95778b10671922738f573284be785b2dce109943"
+  integrity sha512-stq215TSytQAYPcDnAy5m1KBD4im5RdJQNWoZvjQXPG+eKUC1ReuEJRfuWzcy5Bbub6bp31sO/tV0h0kQLy2OQ==
+
+"@fontsource/rosario@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/rosario/-/rosario-4.2.2.tgz#89d26ff8191fa7ada04cc3d70736c33dbcd5d719"
+  integrity sha512-UbZIPpldPGTJiUYJFBueVcqdJ+9ruVMQ79ptLgVMQZcgZYLNF/A5YIO86l2EUK8MzVzAOnLJd6Fxrqr9mFqawg==
+
 "@graphql-tools/batch-execute@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-execute/-/batch-execute-7.0.0.tgz#e79d11bd5b39f29172f6ec2eafa71103c6a6c85b"

@@ -1,3 +1,5 @@
+import '@fontsource/crimson-text';
+import '@fontsource/rosario';
 import { ThemeProvider } from 'theme-ui';
 
 import Layout from 'components/layout';
