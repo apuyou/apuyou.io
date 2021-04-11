@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 
 import Intro from 'components/intro';
+import Projects from 'components/projects';
 
 export default function HomePage() {
   // useEffect(() => {
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Intro />
+      <Projects />
     </>
   );
 }
