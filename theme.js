@@ -16,8 +16,8 @@ export default {
     primary: '#07c',
     modes: {
       dark: {
-        text: '#fff',
-        background: '#000',
+        text: '#eaeaea',
+        background: '#152028',
         primary: '#0cf',
       },
     },
