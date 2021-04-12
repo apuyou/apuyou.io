@@ -1,9 +1,16 @@
 /** @jsxImportSource theme-ui */
 
-import Intro from 'components/intro';
-import Projects from 'components/projects';
+import fs from 'fs';
+import { join } from 'path';
 
-export default function HomePage() {
+import Intro from 'components/intro';
+import Posts from 'components/posts';
+import Projects from 'components/projects';
+import projects from 'data/projects.json';
+
+const postsDirectory = join(process.cwd(), 'pages', 'blog');
+
+export default function HomePage({ posts }) {
   // useEffect(() => {
   //   let deviceId = localStorage.getItem('device-id');
   //   if (!deviceId) {
@@ -19,7 +26,21 @@ export default function HomePage() {
   return (
     <>
       <Intro />
-      <Projects />
+      <Projects projects={projects} />
+      <Posts posts={posts} />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = fs
+    .readdirSync(postsDirectory, { withFileTypes: true })
+    .filter(f => f.isDirectory())
+    .map(f => ({ slug: f.name }));
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
