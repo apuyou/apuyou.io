@@ -1,8 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import projects from 'data/projects.json';
-
-export default function Projects() {
+export default function Projects({ projects }) {
   return (
     <>
       <h2>Projects</h2>
