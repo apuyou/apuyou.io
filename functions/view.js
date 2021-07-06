@@ -3,7 +3,7 @@ const UAParserJs = require('ua-parser-js');
 const { v4: uuid } = require('uuid');
 
 exports.handler = async function(event, context) {
-  const ipAddress = event.headers['client-ip'];
+  const ipAddress = event.headers['X-Nf-Client-Connection-Ip'];
   if (!ipAddress) {
     return {
       statusCode: error.response.status,
