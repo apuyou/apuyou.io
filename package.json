@@ -2,7 +2,7 @@
   "name": "apuyou",
   "private": true,
   "description": "apuyou's home page",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": "Arthur Puyou <arthur@puyou.fr>",
   "dependencies": {
     "@fontsource/crimson-text": "^4.2.2",
