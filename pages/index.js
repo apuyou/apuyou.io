@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import { join } from 'path';
+import Head from 'next/head';
 
 import Intro from 'components/intro';
 import Posts from 'components/posts';
@@ -25,6 +26,9 @@ export default function HomePage({ posts }) {
 
   return (
     <>
+      <Head>
+        <title>Arthur Puyou – Freelance Developer &amp; Project Manager</title>
+      </Head>
       <Intro />
       <Projects projects={projects} />
       <Posts posts={posts} />
