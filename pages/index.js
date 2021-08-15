@@ -39,8 +39,8 @@ export default function HomePage({ posts, projects }) {
 export async function getStaticProps() {
   const posts = fs
     .readdirSync(postsDirectory, { withFileTypes: true })
-    .filter(f => f.isDirectory())
-    .map(f => ({ slug: f.name }));
+    .filter((f) => f.isDirectory())
+    .map((f) => ({ slug: f.name }));
 
   return {
     props: {

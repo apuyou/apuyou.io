@@ -33,7 +33,7 @@
     "start": "next start"
   },
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^2.3.2"
   },
   "repository": {
     "type": "git",

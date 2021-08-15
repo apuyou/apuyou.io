@@ -36,7 +36,7 @@ export default function Projects({ projects }) {
           gridGap: 2,
         }}
       >
-        {visibleProjects.map(project => (
+        {visibleProjects.map((project) => (
           <div
             key={project.id}
             sx={{

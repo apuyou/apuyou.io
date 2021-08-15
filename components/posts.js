@@ -5,7 +5,7 @@ export default function Posts({ posts }) {
     <>
       <h2>Blog</h2>
       <ul>
-        {posts.map(post => (
+        {posts.map((post) => (
           <li key={post.slug}>{post.slug}</li>
         ))}
       </ul>

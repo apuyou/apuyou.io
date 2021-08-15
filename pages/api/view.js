@@ -2,8 +2,8 @@ const axios = require('axios');
 const UAParserJs = require('ua-parser-js');
 const { v4: uuid } = require('uuid');
 
-exports.handler = async function(event, context) {
-  const ipAddress = event.headers['X-Nf-Client-Connection-Ip'];
+exports.handler = async function (event, context) {
+  const ipAddress = event.headers['client-ip'];
   if (!ipAddress) {
     return {
       statusCode: error.response.status,
@@ -12,7 +12,8 @@ exports.handler = async function(event, context) {
   }
 
   const parsedBody = JSON.parse(event.body);
-  const uuidMatcher = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
+  const uuidMatcher =
+    /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
   const deviceId =
     parsedBody &&
     parsedBody.device_id &&
