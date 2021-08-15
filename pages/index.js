@@ -7,11 +7,11 @@ import Head from 'next/head';
 import Intro from 'components/intro';
 import Posts from 'components/posts';
 import Projects from 'components/projects';
-import projects from 'data/projects.json';
+import projectsData from 'data/projects.json';
 
 const postsDirectory = join(process.cwd(), 'pages', 'blog');
 
-export default function HomePage({ posts }) {
+export default function HomePage({ posts, projects }) {
   // useEffect(() => {
   //   let deviceId = localStorage.getItem('device-id');
   //   if (!deviceId) {
@@ -45,6 +45,7 @@ export async function getStaticProps() {
   return {
     props: {
       posts,
+      projects: projectsData,
     },
   };
 }
