@@ -15,12 +15,21 @@ export default {
     text: '#000',
     background: '#fff',
     primary: '#07c',
+    secondary: '#666',
     modes: {
       dark: {
         text: '#eaeaea',
         background: '#152028',
-        primary: '#0cf',
+        primary: '#246',
+        secondary: '#666',
       },
+    },
+  },
+  buttons: {
+    primary: {
+      borderRadius: 0,
+      fontFamily: 'body',
+      textTransform: 'uppercase',
     },
   },
   text: {

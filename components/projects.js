@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
+import { useState } from 'react';
 import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
-import { useThemeUI } from 'theme-ui';
+import { useThemeUI, Button } from 'theme-ui';
 import Image from 'next/image';
 
 function ExternalUrl({ url, icon, title }) {
@@ -20,6 +21,10 @@ function ExternalUrl({ url, icon, title }) {
 }
 
 export default function Projects({ projects }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleProjects = expanded ? projects : projects.slice(0, 4);
+
   return (
     <>
       <h2>Projects</h2>
@@ -31,11 +36,11 @@ export default function Projects({ projects }) {
           gridGap: 2,
         }}
       >
-        {projects.map(project => (
+        {visibleProjects.map(project => (
           <div
             key={project.id}
             sx={{
-              borderColor: '#666',
+              borderColor: 'secondary',
               borderWidth: 1,
               borderStyle: 'solid',
               padding: 2,
@@ -89,6 +94,18 @@ export default function Projects({ projects }) {
           </div>
         ))}
       </div>
+      {!expanded && (
+        <div
+          sx={{
+            marginTop: 3,
+            display: 'flex',
+            justifyContent: 'center',
+            marginX: 'auto',
+          }}
+        >
+          <Button onClick={() => setExpanded(true)}>View all</Button>
+        </div>
+      )}
     </>
   );
 }
