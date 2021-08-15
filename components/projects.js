@@ -23,7 +23,7 @@ function ExternalUrl({ url, icon, title }) {
 export default function Projects({ projects }) {
   const [expanded, setExpanded] = useState(false);
 
-  const visibleProjects = expanded ? projects : projects.slice(0, 4);
+  const visibleProjects = expanded ? projects : projects?.slice(0, 4);
 
   return (
     <>
