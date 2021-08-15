@@ -7,7 +7,7 @@ export default function Layout({ children }) {
     <div
       sx={theme => ({
         maxWidth: theme.breakpoints[theme.breakpoints.length - 1],
-        marginX: 'auto',
+        marginX: [2, 'auto'],
       })}
     >
       <Header />

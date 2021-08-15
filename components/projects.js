@@ -27,7 +27,7 @@ export default function Projects({ projects }) {
         sx={{
           width: '100%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
+          gridTemplateColumns: ['1fr', 'repeat(2, 1fr)'],
           gridGap: 2,
         }}
       >
@@ -35,10 +35,9 @@ export default function Projects({ projects }) {
           <div
             key={project.id}
             sx={{
-              borderColor: 'text',
+              borderColor: '#666',
               borderWidth: 1,
               borderStyle: 'solid',
-              borderRadius: 5,
               padding: 2,
               display: 'flex',
               flexDirection: 'column',
