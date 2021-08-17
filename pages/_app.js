@@ -3,6 +3,7 @@ import '@fontsource/rosario';
 import { ThemeProvider } from 'theme-ui';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import Layout from 'components/layout';
 import theme from 'theme';
