@@ -3,6 +3,7 @@
 import Intro from 'components/intro';
 import Posts from 'components/posts';
 import Projects from 'components/projects';
+import Skills from 'components/skills';
 import projectsData from 'data/projects.json';
 import { getPosts } from 'data/posts';
 
@@ -12,6 +13,7 @@ export default function HomePage({ posts, projects }) {
       <Intro />
       <Posts posts={posts} />
       <Projects projects={projects} />
+      <Skills />
     </>
   );
 }
