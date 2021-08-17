@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+import Image from 'next/image';
+
 export default function Intro() {
   return (
     <div
@@ -7,9 +9,39 @@ export default function Intro() {
         display: 'flex',
         height: '90vh',
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
       }}
     >
+      <div
+        sx={{
+          borderWidth: 1,
+          borderStyle: 'solid',
+          borderColor: 'secondary',
+          borderRadius: 158,
+          height: 316,
+          width: 316,
+          marginRight: 5,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <div
+          sx={{
+            borderRadius: 150,
+            overflow: 'hidden',
+            height: 300,
+            width: 300,
+          }}
+        >
+          <Image
+            src="/apuyou.jpg"
+            width="300"
+            height="300"
+            alt="Arthur Puyou Headshot"
+          />
+        </div>
+      </div>
       <h1
         sx={{
           lineHeight: '2em',
