@@ -49,7 +49,7 @@ export default function Projects({ projects }) {
                   marginRight: 2,
                 }}
               >
-                <Image src={project.icon} width={50} height={50} />
+                <Image src={project.icon} width={50} height={50} alt="" />
               </div>
               <h3 sx={{ margin: 0 }}>{project.name}</h3>
             </div>

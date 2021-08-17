@@ -33,7 +33,9 @@ export default function Posts({ posts }) {
                   marginRight: 2,
                 }}
               >
-                {post.icon && <Image src={post.icon} width={50} height={50} />}
+                {post.icon && (
+                  <Image src={post.icon} width={50} height={50} alt="" />
+                )}
               </div>
               <h3 sx={{ margin: 0 }}>{post.title}</h3>
             </div>

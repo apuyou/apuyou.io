@@ -9,7 +9,7 @@ const post = (url, data) =>
     body: JSON.stringify(data),
   }).then((resp) => resp.json());
 
-export default async function (req, res) {
+export default async function handler(req, res) {
   const ipAddress = req.headers['x-forwarded-for'];
   if (!ipAddress) {
     res.status(200).json({ status: 'skip' });
