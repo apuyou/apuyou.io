@@ -45,6 +45,12 @@ export default {
       lineHeight: 'body',
       fontWeight: 'body',
     },
+    img: {
+      maxWidth: '100%',
+    },
+    a: {
+      color: 'text',
+    },
     h1: {
       variant: 'text.heading',
       fontSize: 5,
