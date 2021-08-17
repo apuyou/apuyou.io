@@ -54,7 +54,6 @@ export default function SEO({
         }}
       ></script>
       <title>{title}</title>
-      <html lang="en" dir="ltr" />
     </Head>
   );
 }
