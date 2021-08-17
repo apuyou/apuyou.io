@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import Layout from 'components/layout';
+import SEO from 'components/seo';
 import theme from 'theme';
 
 export default function MyApp({ Component, pageProps }) {
@@ -28,10 +29,13 @@ export default function MyApp({ Component, pageProps }) {
   }, [pathname]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <>
+      <SEO />
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+    </>
   );
 }

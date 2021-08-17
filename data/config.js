@@ -4,6 +4,7 @@ module.exports = {
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
   legalName: 'Arthur Puyou',
+  title: 'Arthur Puyou – Freelance Developer &amp; Project Manager',
   description: 'I’m Arthur and I’m a maker!',
   socialLinks: {
     twitter: 'https://twitter.com/apuyou',
