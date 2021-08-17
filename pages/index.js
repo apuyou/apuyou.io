@@ -9,18 +9,6 @@ import projectsData from 'data/projects.json';
 import { getPosts } from 'data/posts';
 
 export default function HomePage({ posts, projects }) {
-  // useEffect(() => {
-  //   let deviceId = localStorage.getItem('device-id');
-  //   if (!deviceId) {
-  //     deviceId = uuid();
-  //     localStorage.setItem('device-id', deviceId);
-  //   }
-  //   axios.post('/.netlify/functions/view', {
-  //     device_id: deviceId,
-  //     referrer: document.referrer,
-  //   });
-  // }, []);
-
   return (
     <>
       <Head>

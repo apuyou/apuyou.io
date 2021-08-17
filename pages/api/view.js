@@ -1,17 +1,23 @@
-const axios = require('axios');
 const UAParserJs = require('ua-parser-js');
 const { v4: uuid } = require('uuid');
 
-exports.handler = async function (event, context) {
-  const ipAddress = event.headers['client-ip'];
+const get = (url) => fetch(url).then((resp) => resp.json());
+
+const post = (url, data) =>
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }).then((resp) => resp.json());
+
+export default async function (req, res) {
+  console.log(req.headers);
+  const ipAddress = req.headers['x-forwarded-for'];
   if (!ipAddress) {
-    return {
-      statusCode: error.response.status,
-      body: JSON.stringify({ status: 'skip' }),
-    };
+    res.status(200).json({ status: 'skip' });
+    return;
   }
 
-  const parsedBody = JSON.parse(event.body);
+  const parsedBody = req.body;
   const uuidMatcher =
     /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
   const deviceId =
@@ -30,10 +36,10 @@ exports.handler = async function (event, context) {
       events: [
         {
           device_id: deviceId,
-          event_type: parsedBody.post ? 'view post' : 'view homepage',
-          event_properties: parsedBody.post
+          event_type: 'view page',
+          event_properties: parsedBody.pathname
             ? {
-                title: parsedBody.post,
+                pathname: parsedBody.pathname,
               }
             : {},
           user_properties: parsedBody.referrer
@@ -47,15 +53,15 @@ exports.handler = async function (event, context) {
         },
       ],
     };
-    if (event.headers['user-agent']) {
-      const ua = UAParserJs(event.headers['user-agent']);
+    if (req.headers['user-agent']) {
+      const ua = UAParserJs(req.headers['user-agent']);
       amplitudeData.events[0].os_name = ua.browser.name;
       amplitudeData.events[0].os_version = ua.browser.version;
       amplitudeData.events[0].device_model = ua.os.name;
     }
 
     console.log('Sending data to Amplitude', amplitudeData);
-    const { data } = await axios.post(
+    const data = await post(
       'https://api.amplitude.com/2/httpapi',
       amplitudeData
     );
@@ -79,7 +85,7 @@ exports.handler = async function (event, context) {
     const URL = `https://api.ipdata.co/${ipAddress}?api-key=${IPDATA_API_KEY}`;
     console.log('IPData URL', URL);
 
-    const { data: dataIpdata } = await axios.get(URL);
+    const dataIpdata = await get(URL);
     console.log('Received data from Ipdata for IP', ipAddress, dataIpdata);
 
     const slackData = {
@@ -87,10 +93,7 @@ exports.handler = async function (event, context) {
       username: 'Statbot',
       icon_emoji: ':mag:',
     };
-    const { data: dataSlack } = await axios.post(
-      process.env.SLACK_WEBHOOK_URL,
-      slackData
-    );
+    const dataSlack = await post(process.env.SLACK_WEBHOOK_URL, slackData);
     console.log('Received data from Slack', dataSlack);
   } catch (error) {
     if (error.response) {
@@ -105,8 +108,5 @@ exports.handler = async function (event, context) {
     status = 'error';
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ status }),
-  };
-};
+  res.status(200).json({ status });
+}
