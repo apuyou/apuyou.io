@@ -4,6 +4,9 @@ import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
 import { useThemeUI, Button } from 'theme-ui';
 import Image from 'next/image';
 
+import Grid from 'components/grid';
+import GridItem from 'components/griditem';
+
 function ExternalUrl({ url, icon, title }) {
   const { theme } = useThemeUI();
   const Icon = icon;
@@ -28,26 +31,9 @@ export default function Projects({ projects }) {
   return (
     <>
       <h2>Projects</h2>
-      <div
-        sx={{
-          width: '100%',
-          display: 'grid',
-          gridTemplateColumns: ['1fr', 'repeat(2, 1fr)'],
-          gridGap: 2,
-        }}
-      >
+      <Grid>
         {visibleProjects.map((project) => (
-          <div
-            key={project.id}
-            sx={{
-              borderColor: 'secondary',
-              borderWidth: 1,
-              borderStyle: 'solid',
-              padding: 2,
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
+          <GridItem key={project.id}>
             <div
               sx={{
                 display: 'flex',
@@ -91,9 +77,9 @@ export default function Projects({ projects }) {
                 />
               )}
             </div>
-          </div>
+          </GridItem>
         ))}
-      </div>
+      </Grid>
       {!expanded && (
         <div
           sx={{
