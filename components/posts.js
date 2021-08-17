@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from 'theme-ui';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Grid from 'components/grid';
 import GridItem from 'components/griditem';
@@ -37,6 +38,11 @@ export default function Posts({ posts }) {
               <h3 sx={{ margin: 0 }}>{post.title}</h3>
             </div>
             <div sx={{ marginBottom: 3 }}>{post.excerpt}</div>
+            <div>
+              <Link href={`/blog/${post.slug}`}>
+                <a>Read →</a>
+              </Link>
+            </div>
           </GridItem>
         ))}
       </Grid>
