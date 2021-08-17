@@ -1,15 +1,12 @@
 /** @jsxImportSource theme-ui */
 
-import fs from 'fs';
-import { join } from 'path';
 import Head from 'next/head';
 
 import Intro from 'components/intro';
 import Posts from 'components/posts';
 import Projects from 'components/projects';
 import projectsData from 'data/projects.json';
-
-const postsDirectory = join(process.cwd(), 'pages', 'blog');
+import { getPosts } from 'data/posts';
 
 export default function HomePage({ posts, projects }) {
   // useEffect(() => {
@@ -37,10 +34,7 @@ export default function HomePage({ posts, projects }) {
 }
 
 export async function getStaticProps() {
-  const posts = fs
-    .readdirSync(postsDirectory, { withFileTypes: true })
-    .filter((f) => f.isDirectory())
-    .map((f) => ({ slug: f.name }));
+  const posts = await getPosts();
 
   return {
     props: {
