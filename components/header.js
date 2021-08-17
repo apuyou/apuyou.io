@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 
-import Link from 'next/link';
+import Link from 'components/link';
 
 export default function Header() {
   return (
@@ -25,9 +25,7 @@ export default function Header() {
           fontWeight: 'bold',
         }}
       >
-        <Link href="/">
-          <a>Arthur Puyou</a>
-        </Link>
+        <Link href="/">Arthur Puyou</Link>
       </div>
       <ul
         sx={{
@@ -42,19 +40,13 @@ export default function Header() {
         }}
       >
         <li>
-          <Link href="/#blog">
-            <a>Blog</a>
-          </Link>
+          <Link href="/#blog">Blog</Link>
         </li>
         <li>
-          <Link href="/#projects">
-            <a>Projects</a>
-          </Link>
+          <Link href="/#projects">Projects</Link>
         </li>
         <li>
-          <Link href="/#contact">
-            <a>Contact</a>
-          </Link>
+          <Link href="/#contact">Contact</Link>
         </li>
       </ul>
     </nav>
