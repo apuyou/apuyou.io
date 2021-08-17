@@ -30,7 +30,7 @@ export default function Projects({ projects }) {
 
   return (
     <>
-      <h2>Projects</h2>
+      <h2 id="projects">Projects</h2>
       <Grid>
         {visibleProjects.map((project) => (
           <GridItem key={project.id}>

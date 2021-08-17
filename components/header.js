@@ -1,8 +1,10 @@
 /** @jsxImportSource theme-ui */
 
+import Link from 'next/link';
+
 export default function Header() {
   return (
-    <div
+    <nav
       sx={{
         display: 'flex',
         position: 'sticky',
@@ -10,13 +12,23 @@ export default function Header() {
         borderBottomStyle: 'solid',
         borderBottomWidth: 2,
         borderBottomColor: 'text',
-        marginX: [-2, 0],
-        paddingX: [2, 0],
+        marginX: -2,
+        paddingX: 2,
         top: 0,
         backgroundColor: 'background',
+        zIndex: 10,
       }}
     >
-      <div>Arthur Puyou</div>
+      <div
+        sx={{
+          fontSize: 4,
+          fontWeight: 'bold',
+        }}
+      >
+        <Link href="/">
+          <a>Arthur Puyou</a>
+        </Link>
+      </div>
       <ul
         sx={{
           display: 'flex',
@@ -29,10 +41,22 @@ export default function Header() {
           },
         }}
       >
-        <li>Blog</li>
-        <li>Projects</li>
-        <li>Contact</li>
+        <li>
+          <Link href="/#blog">
+            <a>Blog</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/#projects">
+            <a>Projects</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/#contact">
+            <a>Contact</a>
+          </Link>
+        </li>
       </ul>
-    </div>
+    </nav>
   );
 }

@@ -13,7 +13,7 @@ export default function Posts({ posts }) {
 
   return (
     <>
-      <h2>Blog</h2>
+      <h2 id="blog">Blog</h2>
       <Grid>
         {visiblePosts.map((post) => (
           <GridItem key={post.slug}>
