@@ -25,7 +25,7 @@ const structuredDataOrganization = {
 };
 
 export default function SEO({
-  title = config.legalName,
+  title = config.title,
   description = config.description,
 }) {
   const { pathname } = useRouter();
