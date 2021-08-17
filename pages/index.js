@@ -30,8 +30,8 @@ export default function HomePage({ posts, projects }) {
         <title>Arthur Puyou – Freelance Developer &amp; Project Manager</title>
       </Head>
       <Intro />
-      <Projects projects={projects} />
       <Posts posts={posts} />
+      <Projects projects={projects} />
     </>
   );
 }
