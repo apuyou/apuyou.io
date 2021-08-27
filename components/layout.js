@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import Footer from 'components/footer';
 import Header from 'components/header';
 
 export default function Layout({ children }) {
@@ -12,6 +13,7 @@ export default function Layout({ children }) {
     >
       <Header />
       {children}
+      <Footer />
     </div>
   );
 }
