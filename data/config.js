@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   defaultTitle: 'Arthur Puyou',
   logo: 'https://apuyou.io/favicon/favicon-512.png',
   author: 'Arthur Puyou',
@@ -38,3 +38,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

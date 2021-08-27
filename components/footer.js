@@ -1,9 +1,58 @@
+/** @jsxImportSource theme-ui */
+
+import {
+  FaLink,
+  FaGithub,
+  FaProductHunt,
+  FaTwitter,
+  FaLinkedin,
+} from 'react-icons/fa';
+
+import config from 'data/config';
+import { A } from 'components/link';
+
+const ICON_MAP = {
+  github: <FaGithub />,
+  linkedin: <FaLinkedin />,
+  producthunt: <FaProductHunt />,
+  twitter: <FaTwitter />,
+};
+
 export default function Footer() {
   return (
-    <footer>
-      <ul>
-        <li>hey</li>
-        <li>hey2</li>
+    <footer
+      sx={{
+        borderTopStyle: 'solid',
+        borderTopWidth: 2,
+        borderTopColor: 'text',
+        marginTop: 4,
+      }}
+    >
+      <ul
+        sx={{
+          listStyleType: 'none',
+          marginX: 0,
+          marginTop: 2,
+          marginBottom: 4,
+          padding: 0,
+        }}
+      >
+        {config.social.map((link, index) => (
+          <span key={link.url}>
+            <A href={link.url} target="_blank" rel="noopener noreferrer">
+              <span
+                sx={{
+                  mr: 1,
+                  verticalAlign: 'middle',
+                }}
+              >
+                {ICON_MAP[link.icon]}
+              </span>
+              {link.name}
+            </A>
+            {index < config.social.length - 1 && ' // '}
+          </span>
+        ))}
       </ul>
     </footer>
   );
