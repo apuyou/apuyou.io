@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 
+import Contact from 'components/contact';
 import Intro from 'components/intro';
 import Posts from 'components/posts';
 import Projects from 'components/projects';
@@ -14,6 +15,7 @@ export default function HomePage({ posts, projects }) {
       <Posts posts={posts} />
       <Projects projects={projects} />
       <Skills />
+      <Contact />
     </>
   );
 }
