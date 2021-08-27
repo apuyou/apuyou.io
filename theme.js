@@ -1,4 +1,4 @@
-export default {
+const theme = {
   breakpoints: ['40em', '56em'],
   fonts: {
     body: '"Crimson Text", serif',
@@ -101,3 +101,5 @@ export default {
     },
   },
 };
+
+export default theme;
