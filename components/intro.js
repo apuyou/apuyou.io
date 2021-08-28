@@ -10,6 +10,9 @@ export default function Intro() {
         height: '90vh',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        flexDirection: ['column', 'row'],
+        marginX: 'auto',
+        marginTop: [3, 0],
       }}
     >
       <div
@@ -20,7 +23,7 @@ export default function Intro() {
           borderRadius: 158,
           height: 316,
           width: 316,
-          marginRight: 5,
+          marginRight: [0, 5],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
