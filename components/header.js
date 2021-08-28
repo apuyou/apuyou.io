@@ -7,6 +7,7 @@ export default function Header() {
     <nav
       sx={{
         display: 'flex',
+        alignItems: 'flex-end',
         position: 'sticky',
         paddingY: 3,
         borderBottomStyle: 'solid',
