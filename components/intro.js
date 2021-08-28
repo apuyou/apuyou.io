@@ -7,12 +7,12 @@ export default function Intro() {
     <div
       sx={{
         display: 'flex',
-        height: '90vh',
+        height: ['70vh', '90vh'],
         alignItems: 'center',
         justifyContent: 'flex-start',
         flexDirection: ['column', 'row'],
         marginX: 'auto',
-        marginTop: [3, 0],
+        marginTop: [5, 0],
       }}
     >
       <div
@@ -21,8 +21,8 @@ export default function Intro() {
           borderStyle: 'solid',
           borderColor: 'secondary',
           borderRadius: 158,
-          height: 316,
-          width: 316,
+          height: [186, 316],
+          width: [186, 316],
           marginRight: [0, 5],
           display: 'flex',
           alignItems: 'center',
@@ -33,8 +33,8 @@ export default function Intro() {
           sx={{
             borderRadius: 150,
             overflow: 'hidden',
-            height: 300,
-            width: 300,
+            height: [170, 300],
+            width: [170, 300],
           }}
         >
           <Image
