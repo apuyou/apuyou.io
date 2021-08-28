@@ -11,6 +11,9 @@ const theme = {
     heading: 700,
     bold: 700,
   },
+  lineHeights: {
+    body: 1.25,
+  },
   colors: {
     text: '#000',
     background: '#fff',
