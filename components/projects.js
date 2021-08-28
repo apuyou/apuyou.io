@@ -51,9 +51,15 @@ export default function Projects({ projects }) {
               >
                 <Image src={project.icon} width={50} height={50} alt="" />
               </div>
-              <h3 sx={{ margin: 0 }}>{project.name}</h3>
+              <div>
+                <h3 sx={{ margin: 0 }}>{project.name}</h3>
+                <h4 sx={{ margin: 0 }}>{project.period}</h4>
+              </div>
             </div>
             <div sx={{ marginBottom: 3 }}>{project.description}</div>
+            <div sx={{ marginBottom: 3 }}>
+              {project.tags.map((t) => `#${t} `)}
+            </div>
             <div sx={{ marginTop: 'auto' }}>
               {project.url && (
                 <ExternalUrl

@@ -37,7 +37,16 @@ export default function Posts({ posts }) {
                   <Image src={post.icon} width={50} height={50} alt="" />
                 )}
               </div>
-              <h3 sx={{ margin: 0 }}>{post.title}</h3>
+              <div>
+                <h3 sx={{ margin: 0 }}>{post.title}</h3>
+                <h4 sx={{ margin: 0 }}>
+                  {new Date(post.date).toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                  })}
+                </h4>
+              </div>
             </div>
             <div sx={{ marginBottom: 3 }}>{post.excerpt}</div>
             <div>
