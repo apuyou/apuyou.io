@@ -26,6 +26,8 @@ export default function Footer() {
         borderTopWidth: 2,
         borderTopColor: 'text',
         marginTop: 4,
+        marginX: -2,
+        paddingX: 2,
       }}
     >
       <ul
@@ -38,11 +40,17 @@ export default function Footer() {
         }}
       >
         {config.social.map((link, index) => (
-          <span key={link.url}>
+          <div
+            key={link.url}
+            sx={{
+              display: 'inline-block',
+              marginRight: 1,
+            }}
+          >
             <A href={link.url} target="_blank" rel="noopener noreferrer">
               <span
                 sx={{
-                  mr: 1,
+                  marginRight: 1,
                   verticalAlign: 'middle',
                 }}
               >
@@ -50,8 +58,8 @@ export default function Footer() {
               </span>
               {link.name}
             </A>
-            {index < config.social.length - 1 && ' // '}
-          </span>
+            {index < config.social.length - 1 && <>&nbsp;// </>}
+          </div>
         ))}
       </ul>
     </footer>
