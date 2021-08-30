@@ -1,5 +1,14 @@
 [
   {
+    "id": "murfy-ecommerce",
+    "name": "Murfy - eCommerce",
+    "url": "https://murfy.fr/reconditionne",
+    "tags": ["nextjs", "django", "ecommerce", "fullstack"],
+    "icon": "/projects/factureapi.png",
+    "period": "October 2020 – March 2021",
+    "description": "Murfy is a startup bringing an innovative approach to electrical appliances repairs and refurbishment. The aim of this project was to integrate the refurbished shop in their ERP by replacing Prestashop with a custom solution. I held various roles accross this project, on the technical and product sides."
+  },
+  {
     "id": "factureapi",
     "name": "FactureAPI",
     "url": "https://factureapi.apuyou.io/",
