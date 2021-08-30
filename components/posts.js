@@ -18,7 +18,7 @@ export default function Posts({ posts }) {
       <Grid>
         {visiblePosts
           .sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
+            return new Date(b.metadata.date) - new Date(a.metadata.date);
           })
           .map((post) => (
             <GridItem key={post.slug}>
@@ -37,14 +37,19 @@ export default function Posts({ posts }) {
                     marginRight: 2,
                   }}
                 >
-                  {post.icon && (
-                    <Image src={post.icon} width={50} height={50} alt="" />
+                  {post.metadata.icon && (
+                    <Image
+                      src={post.metadata.icon}
+                      width={50}
+                      height={50}
+                      alt=""
+                    />
                   )}
                 </div>
                 <div>
-                  <h3 sx={{ margin: 0 }}>{post.title}</h3>
+                  <h3 sx={{ margin: 0 }}>{post.metadata.title}</h3>
                   <h4 sx={{ margin: 0 }}>
-                    {new Date(post.date).toLocaleDateString('fr-FR', {
+                    {new Date(post.metadata.date).toLocaleDateString('fr-FR', {
                       year: 'numeric',
                       month: 'numeric',
                       day: 'numeric',
@@ -52,7 +57,7 @@ export default function Posts({ posts }) {
                   </h4>
                 </div>
               </div>
-              <div sx={{ marginBottom: 3 }}>{post.excerpt}</div>
+              <div sx={{ marginBottom: 3 }}>{post.metadata.excerpt}</div>
               <div>
                 <Link href={`/blog/${post.slug}`}>Read →</Link>
               </div>
