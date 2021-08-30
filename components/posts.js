@@ -16,44 +16,48 @@ export default function Posts({ posts }) {
     <>
       <h2 id="blog">Blog</h2>
       <Grid>
-        {visiblePosts.map((post) => (
-          <GridItem key={post.slug}>
-            <div
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: 2,
-              }}
-            >
+        {visiblePosts
+          .sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          })
+          .map((post) => (
+            <GridItem key={post.slug}>
               <div
                 sx={{
-                  width: 50,
-                  height: 50,
-                  flexShrink: 0,
-                  marginRight: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginBottom: 2,
                 }}
               >
-                {post.icon && (
-                  <Image src={post.icon} width={50} height={50} alt="" />
-                )}
+                <div
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    flexShrink: 0,
+                    marginRight: 2,
+                  }}
+                >
+                  {post.icon && (
+                    <Image src={post.icon} width={50} height={50} alt="" />
+                  )}
+                </div>
+                <div>
+                  <h3 sx={{ margin: 0 }}>{post.title}</h3>
+                  <h4 sx={{ margin: 0 }}>
+                    {new Date(post.date).toLocaleDateString('fr-FR', {
+                      year: 'numeric',
+                      month: 'numeric',
+                      day: 'numeric',
+                    })}
+                  </h4>
+                </div>
               </div>
+              <div sx={{ marginBottom: 3 }}>{post.excerpt}</div>
               <div>
-                <h3 sx={{ margin: 0 }}>{post.title}</h3>
-                <h4 sx={{ margin: 0 }}>
-                  {new Date(post.date).toLocaleDateString('fr-FR', {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric',
-                  })}
-                </h4>
+                <Link href={`/blog/${post.slug}`}>Read →</Link>
               </div>
-            </div>
-            <div sx={{ marginBottom: 3 }}>{post.excerpt}</div>
-            <div>
-              <Link href={`/blog/${post.slug}`}>Read →</Link>
-            </div>
-          </GridItem>
-        ))}
+            </GridItem>
+          ))}
       </Grid>
 
       {!expanded && posts.length > 4 && (
