@@ -4,6 +4,7 @@ import { ThemeProvider } from 'theme-ui';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
+import 'prism-themes/themes/prism-vsc-dark-plus.css';
 
 import Layout from 'components/layout';
 import SEO from 'components/seo';

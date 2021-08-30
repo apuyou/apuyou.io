@@ -1,4 +1,9 @@
-const withMDX = require('@next/mdx')();
+const remarkPrismPlugin = require('remark-prism');
+const withMDX = require('@next/mdx')({
+  options: {
+    remarkPlugins: [remarkPrismPlugin],
+  },
+});
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
