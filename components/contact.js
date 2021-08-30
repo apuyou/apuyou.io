@@ -50,7 +50,7 @@ export default function Contact() {
 
   return (
     <>
-      <h2 id="skills">Contact</h2>
+      <h2 id="contact">Contact</h2>
       {success && (
         <p sx={{ color: 'green' }}>
           Thank you, I&rsquo;ll get back to you shortly!
