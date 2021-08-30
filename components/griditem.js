@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 export default function GridItem({ children }) {
   return (
     <div

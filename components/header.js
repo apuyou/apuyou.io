@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import Link from 'components/link';
 
 export default function Header() {
