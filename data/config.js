@@ -1,9 +1,10 @@
-module.exports = {
+const config = {
   defaultTitle: 'Arthur Puyou',
   logo: 'https://apuyou.io/favicon/favicon-512.png',
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
   legalName: 'Arthur Puyou',
+  title: 'Arthur Puyou – Freelance Developer & Project Manager',
   description: 'I’m Arthur and I’m a maker!',
   socialLinks: {
     twitter: 'https://twitter.com/apuyou',
@@ -37,3 +38,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
