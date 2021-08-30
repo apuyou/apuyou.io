@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import { useCallback, useState } from 'react';
 import { Button } from 'theme-ui';
 

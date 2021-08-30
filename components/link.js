@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import NextLink from 'next/link';
 
 export function A({ children, ...rest }) {
