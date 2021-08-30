@@ -7,7 +7,7 @@ export default function Header() {
     <nav
       sx={{
         display: 'flex',
-        alignItems: 'flex-end',
+        alignItems: 'center',
         position: 'sticky',
         paddingY: 3,
         borderBottomStyle: 'solid',
@@ -34,6 +34,7 @@ export default function Header() {
           listStyleType: 'none',
           padding: 0,
           margin: 0,
+          marginTop: 1,
           marginLeft: 'auto',
           li: {
             marginLeft: 2,
