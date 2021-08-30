@@ -4,7 +4,7 @@ const config = {
   author: 'Arthur Puyou',
   url: 'https://apuyou.io',
   legalName: 'Arthur Puyou',
-  title: 'Arthur Puyou – Freelance Developer &amp; Project Manager',
+  title: 'Arthur Puyou – Freelance Developer & Project Manager',
   description: 'I’m Arthur and I’m a maker!',
   socialLinks: {
     twitter: 'https://twitter.com/apuyou',
