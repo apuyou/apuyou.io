@@ -21,7 +21,7 @@ export default function HomePage({ posts, projects }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getPosts();
+  const posts = getPosts().filter((p) => !p.metadata.draft);
 
   return {
     props: {
