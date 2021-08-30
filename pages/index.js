@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import Contact from 'components/contact';
 import Intro from 'components/intro';
 import Posts from 'components/posts';

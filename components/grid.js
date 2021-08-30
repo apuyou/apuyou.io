@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 export default function Grid({ children }) {
   return (
     <div

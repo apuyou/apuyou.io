@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+
 import {
   FaLink,
   FaGithub,
