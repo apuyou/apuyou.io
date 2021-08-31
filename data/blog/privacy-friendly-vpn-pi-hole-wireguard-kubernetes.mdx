@@ -6,13 +6,15 @@ icon: /blog/privacy-friendly-vpn-pi-hole-wireguard-kubernetes/icon.png
 excerpt: Pi-Hole is great tool to protect your privacy by filtering requests at the DNS level. It was made to be set-up on a Raspberry Pi running in your home, but how can you stay protected when you’re on the move? In this article, we’ll set up Pi-Hole to…
 ---
 
+# Run your own privacy-friendly VPN with Pi-Hole and WireGuard on Kubernetes
+
 [Pi-Hole](https://pi-hole.net) is great tool to protect your privacy by filtering requests at the DNS level. It was made to be set-up on a Raspberry Pi running in your home, but how can you stay protected when you're on the move?
 
 In this article, we'll set up Pi-Hole to run in Kubernetes. We will also configure Wireguard so that you can connect securely to your Pi-Hole. This will encrypt all your traffic, not just DNS!
 
 We assume that you already have a Kubernetes cluster running and that you are able to run `kubectl` commands from your environment.
 
-# 1. Pi-Hole
+## 1. Pi-Hole
 
 Create the `pihole.yaml` file with the following contents. Head right after the file if you want some details on what it does!
 
@@ -120,13 +122,13 @@ To start this service, run:
 kubectl apply -f pihole.yaml
 ```
 
-# 2. WireGuard
+## 2. WireGuard
 
 Now that Pi-Hole is running, we want to be able to access it through a VPN.
 
 Wireguard is a recent solution with great clients on multiple platforms.
 
-## Download a client
+### Download a client
 
 On recent Ubuntu/Debian distributions, you can install WireGuard as a package:
 
@@ -136,7 +138,7 @@ sudo apt install wireguard
 
 On macOS or iOS, you can find great clients directly on the [Mac App Store](https://apps.apple.com/us/app/wireguard/id1451685025?mt=12).
 
-## Generate a public & private key for the gateway
+### Generate a public & private key for the gateway
 
 We need to generate a private key for the WireGuard peer that will be running inside Kubernetes. The public key can be derived from it.
 
@@ -154,11 +156,11 @@ If you're on macOS, you can click on the WireGuard icon > _Manage Tunnels_ > _+_
 
 You can copy the Private key and Public key fields to a file then click _Discard_. We need these values to configure the server but do not need to store them on your Mac.
 
-## Create the client configuration
+### Create the client configuration
 
 We will also need a private/public key pair for the client, so let's generate it right now. You can use the same steps as previously, just keep them in a separate files.
 
-## Deploy WireGuard
+### Deploy WireGuard
 
 We'll proceed the same way as previously and create a `wireguard.yaml` configuration file for this new deployment.
 
@@ -287,7 +289,7 @@ Once again, you can start the service with:
 kubectl apply -f pihole.yaml
 ```
 
-## Create client configuration
+### Create client configuration
 
 Now that your gateway is ready, you can configure your client.
 

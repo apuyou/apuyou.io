@@ -6,13 +6,15 @@ icon: /blog/serverless-graphql-apollo-server-nextjs/icon.png
 excerpt: Next.js allows you to create API Routes within your application. When deployed to Vercel, these routes are created as Serverless Functions, so they will alway run on the server side. Using Apollo Server, we are going to setup a serverless GraphQL…
 ---
 
+# Deploying a serverless GraphQL endpoint with Apollo Server and Next.js
+
 Next.js allows you to create [API Routes](https://nextjs.org/docs/api-routes/introduction) within your application. When deployed to Vercel, these routes are created as [Serverless Functions](https://vercel.com/docs/v2/serverless-functions/introduction), so they will alway run on the server side.
 
 Using Apollo Server, we are going to setup a serverless GraphQL endpoint. This endpoint can then run any backend code and call other APIs or a database (DynamoDB, SQL…).
 
 We will consider that you have already set up your Next.js project.
 
-# 1. Install Apollo Server
+## 1. Install Apollo Server
 
 First of all, let's install `apollo-server-micro`.
 
@@ -24,7 +26,7 @@ This package is a Micro integration for Apollo Server. It is shipped as part of 
 
 Micro is a webserver for microservices. Serverless Functions do not require Micro anymore but they have the same API, so they will be able to talk to Apollo Server with this integration.
 
-# 2. Create the /api/graphql endpoint
+## 2. Create the /api/graphql endpoint
 
 Create a new file at `pages/api/graphql.js` :
 
