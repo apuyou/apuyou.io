@@ -38,16 +38,22 @@ export default function Posts({ posts }) {
                   }}
                 >
                   {post.metadata.icon && (
-                    <Image
-                      src={post.metadata.icon}
-                      width={50}
-                      height={50}
-                      alt=""
-                    />
+                    <Link href={`/blog/${post.slug}`}>
+                      <Image
+                        src={post.metadata.icon}
+                        width={50}
+                        height={50}
+                        alt=""
+                      />
+                    </Link>
                   )}
                 </div>
                 <div>
-                  <h3 sx={{ margin: 0 }}>{post.metadata.title}</h3>
+                  <h3 sx={{ margin: 0 }}>
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.metadata.title}
+                    </Link>
+                  </h3>
                   <h4 sx={{ margin: 0 }}>
                     {new Date(post.metadata.date).toLocaleDateString('fr-FR', {
                       year: 'numeric',
