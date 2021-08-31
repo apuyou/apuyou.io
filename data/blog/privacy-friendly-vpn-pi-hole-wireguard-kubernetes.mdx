@@ -132,7 +132,7 @@ Wireguard is a recent solution with great clients on multiple platforms.
 
 On recent Ubuntu/Debian distributions, you can install WireGuard as a package:
 
-```yaml
+```bash
 sudo apt install wireguard
 ```
 
@@ -144,7 +144,7 @@ We need to generate a private key for the WireGuard peer that will be running in
 
 If you are on Linux, you can use the following command:
 
-```yaml
+```bash
 wg genkey | tee privatekey | wg pubkey > publickey
 ```
 
@@ -295,7 +295,7 @@ Now that your gateway is ready, you can configure your client.
 
 If you are using the CLI, you should create the following file in `/etc/wg0.conf`. With GUI clients, you can just copy/paste it in the settings.
 
-```
+```ini
 [Interface]
 PrivateKey = <Client Private Key>
 Address = 10.41.1.2/32
@@ -317,7 +317,7 @@ _Peer_ defines the gateway that the client will connect to. Add the Gateway _Pub
 
 You can now connect the tunnel using the buttons from your graphical client or by running:
 
-```
+```bash
 wg-quick wg0 up
 ```
 
