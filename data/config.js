@@ -36,6 +36,11 @@ const config = {
       name: 'Twitter',
       url: 'https://twitter.com/apuyou',
     },
+    {
+      icon: 'mastodon',
+      name: 'Mastodon',
+      url: 'https://c.im/@apuyou',
+    },
   ],
 };
 

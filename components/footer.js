@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
 
 import {
-  FaLink,
   FaGithub,
   FaProductHunt,
   FaTwitter,
   FaLinkedin,
+  FaMastodon,
 } from 'react-icons/fa';
 
 import config from 'data/config';
@@ -16,6 +16,7 @@ const ICON_MAP = {
   linkedin: <FaLinkedin />,
   producthunt: <FaProductHunt />,
   twitter: <FaTwitter />,
+  mastodon: <FaMastodon />,
 };
 
 export default function Footer() {
@@ -47,7 +48,7 @@ export default function Footer() {
               marginRight: 1,
             }}
           >
-            <A href={link.url} target="_blank" rel="noopener noreferrer">
+            <A href={link.url} target="_blank" rel="noopener noreferrer me">
               <span
                 sx={{
                   marginRight: 1,
