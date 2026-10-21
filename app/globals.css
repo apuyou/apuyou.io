@@ -1,0 +1,30 @@
+:root {
+  --color-text: #000;
+  --color-background: #fff;
+  --color-primary: #07c;
+  --color-secondary: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #eaeaea;
+    --color-background: #152028;
+    --color-primary: #246;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-family: 'Crimson Text', serif;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
+
+.form label {
+  display: block;
+  margin-top: 4px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-secondary);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.email {
+  height: 2.5em;
+}
+
+.message {
+  height: 7.5em;
+}

@@ -1,11 +1,10 @@
-/** @jsxImportSource theme-ui */
-
 'use client';
 
-import { useState } from 'react';
-import { Button } from 'theme-ui';
 import Image from 'next/image';
+import { useState } from 'react';
 
+import Button from 'components/button';
+import styles from 'components/card.module.css';
 import Grid from 'components/grid';
 import GridItem from 'components/griditem';
 import Link from 'components/link';
@@ -25,21 +24,8 @@ export default function Posts({ posts }) {
           })
           .map((post) => (
             <GridItem key={post.slug}>
-              <div
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: 2,
-                }}
-              >
-                <div
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    flexShrink: 0,
-                    marginRight: 2,
-                  }}
-                >
+              <div className={styles.header}>
+                <div className={styles.icon}>
                   {post.metadata.icon && (
                     <Link href={`/blog/${post.slug}`}>
                       <Image
@@ -47,18 +33,18 @@ export default function Posts({ posts }) {
                         width={50}
                         height={50}
                         alt=""
-                        sx={{ display: 'block' }}
+                        className={styles.image}
                       />
                     </Link>
                   )}
                 </div>
                 <div>
-                  <h3 sx={{ margin: 0 }}>
+                  <h3 className={styles.title}>
                     <Link href={`/blog/${post.slug}`}>
                       {post.metadata.title}
                     </Link>
                   </h3>
-                  <h4 sx={{ margin: 0 }}>
+                  <h4 className={styles.title}>
                     {new Date(post.metadata.date).toLocaleDateString('fr-FR', {
                       year: 'numeric',
                       month: 'numeric',
@@ -67,7 +53,7 @@ export default function Posts({ posts }) {
                   </h4>
                 </div>
               </div>
-              <div sx={{ marginBottom: 3 }}>{post.metadata.excerpt}</div>
+              <div className={styles.text}>{post.metadata.excerpt}</div>
               <div>
                 <Link href={`/blog/${post.slug}`}>Read →</Link>
               </div>
@@ -76,14 +62,7 @@ export default function Posts({ posts }) {
       </Grid>
 
       {!expanded && posts.length > 4 && (
-        <div
-          sx={{
-            marginTop: 3,
-            display: 'flex',
-            justifyContent: 'center',
-            marginX: 'auto',
-          }}
-        >
+        <div className={styles.more}>
           <Button onClick={() => setExpanded(true)}>View all</Button>
         </div>
       )}

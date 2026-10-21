@@ -1,18 +1,5 @@
-/** @jsxImportSource theme-ui */
-
-'use client';
+import styles from 'components/grid.module.css';
 
 export default function Grid({ children }) {
-  return (
-    <div
-      sx={{
-        width: '100%',
-        display: 'grid',
-        gridTemplateColumns: ['1fr', 'repeat(2, 1fr)'],
-        gridGap: 2,
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={styles.grid}>{children}</div>;
 }

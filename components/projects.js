@@ -1,27 +1,26 @@
-/** @jsxImportSource theme-ui */
-
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
-import { useThemeUI, Button } from 'theme-ui';
-import Image from 'next/image';
 
+import Button from 'components/button';
+import styles from 'components/card.module.css';
 import Grid from 'components/grid';
 import GridItem from 'components/griditem';
 
 function ExternalUrl({ url, icon, title }) {
-  const { theme } = useThemeUI();
   const Icon = icon;
+
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       title={title}
-      sx={{ marginRight: 2 }}
+      className={styles.link}
     >
-      <Icon color={theme.colors.text} size="16" alt={title} />
+      <Icon color="var(--color-text)" size="16" alt={title} />
     </a>
   );
 }
@@ -37,39 +36,26 @@ export default function Projects({ projects }) {
       <Grid>
         {visibleProjects.map((project) => (
           <GridItem key={project.id}>
-            <div
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: 2,
-              }}
-            >
-              <div
-                sx={{
-                  width: 50,
-                  height: 50,
-                  flexShrink: 0,
-                  marginRight: 2,
-                }}
-              >
+            <div className={styles.header}>
+              <div className={styles.icon}>
                 <Image
                   src={project.icon}
                   width={50}
                   height={50}
                   alt=""
-                  sx={{ display: 'block' }}
+                  className={styles.image}
                 />
               </div>
               <div>
-                <h3 sx={{ margin: 0 }}>{project.name}</h3>
-                <h4 sx={{ margin: 0 }}>{project.period}</h4>
+                <h3 className={styles.title}>{project.name}</h3>
+                <h4 className={styles.title}>{project.period}</h4>
               </div>
             </div>
-            <div sx={{ marginBottom: 3 }}>{project.description}</div>
-            <div sx={{ marginBottom: 3 }}>
+            <div className={styles.text}>{project.description}</div>
+            <div className={styles.text}>
               {project.tags.map((t) => `#${t} `)}
             </div>
-            <div sx={{ marginTop: 'auto' }}>
+            <div className={styles.links}>
               {project.url && (
                 <ExternalUrl
                   url={project.url}
@@ -96,14 +82,7 @@ export default function Projects({ projects }) {
         ))}
       </Grid>
       {!expanded && (
-        <div
-          sx={{
-            marginTop: 3,
-            display: 'flex',
-            justifyContent: 'center',
-            marginX: 'auto',
-          }}
-        >
+        <div className={styles.more}>
           <Button onClick={() => setExpanded(true)}>View all</Button>
         </div>
       )}

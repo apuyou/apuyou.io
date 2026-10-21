@@ -1,6 +1,7 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkPrismPlugin from 'remark-prism';
 
+import styles from './post.module.css';
 import MDXContent from 'components/mdx-content';
 import config from 'data/config';
 import { getPost, getPosts } from 'data/posts';
@@ -32,5 +33,9 @@ export default async function BlogPostPage({ params }) {
     },
   });
 
-  return <MDXContent source={source} />;
+  return (
+    <div className={styles.post}>
+      <MDXContent source={source} />
+    </div>
+  );
 }

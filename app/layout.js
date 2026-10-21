@@ -1,18 +1,10 @@
 import '@fontsource/crimson-text';
 import '@fontsource/rosario';
 import 'prism-themes/themes/prism-vsc-dark-plus.css';
+import './globals.css';
 
 import Layout from 'components/layout';
-import Providers from 'components/providers';
 import config from 'data/config';
-
-// Same script as theme-ui's InitializeColorMode, which cannot be imported in a
-// server component: applies the stored color mode before the first paint
-const initializeColorMode = `(function() { try {
-  var mode = localStorage.getItem('theme-ui-color-mode');
-  if (!mode) return
-  document.documentElement.classList.add('theme-ui-' + mode);
-} catch (e) {} })();`;
 
 const structuredDataOrganization = {
   '@context': 'http://schema.org',
@@ -59,19 +51,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    // The color mode script adds a class to <html> before hydration
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="en" dir="ltr">
       <body>
-        <script dangerouslySetInnerHTML={{ __html: initializeColorMode }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredDataOrganization),
           }}
         />
-        <Providers>
-          <Layout>{children}</Layout>
-        </Providers>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );

@@ -1,20 +1,10 @@
-/** @jsxImportSource theme-ui */
-
-'use client';
-
 import NextLink from 'next/link';
 
-const linkStyle = {
-  color: 'text',
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
-};
+import styles from 'components/link.module.css';
 
 export function A({ children, ...rest }) {
   return (
-    <a sx={linkStyle} {...rest}>
+    <a className={styles.link} {...rest}>
       {children}
     </a>
   );
@@ -22,7 +12,7 @@ export function A({ children, ...rest }) {
 
 export default function Link({ children, ...rest }) {
   return (
-    <NextLink sx={linkStyle} {...rest}>
+    <NextLink className={styles.link} {...rest}>
       {children}
     </NextLink>
   );

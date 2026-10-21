@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.image {
+  display: block;
+}
+
+.title {
+  margin: 0;
+}
+
+.text {
+  margin-bottom: 16px;
+}
+
+.links {
+  margin-top: auto;
+}
+
+.link {
+  margin-right: 8px;
+}
+
+.more {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
