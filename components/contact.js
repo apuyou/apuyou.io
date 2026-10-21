@@ -5,6 +5,8 @@
 import { useCallback, useState } from 'react';
 import { Button } from 'theme-ui';
 
+import { sendContactMessage } from 'app/actions/contact';
+
 const INITIAL_STATE = {
   sender: '',
   message: '',
@@ -22,18 +24,15 @@ export default function Contact() {
       setSuccess(false);
       setFailure(false);
       setLoading(true);
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.status === 200) {
-        setData(INITIAL_STATE);
-        setSuccess(true);
-      } else {
+      try {
+        const result = await sendContactMessage(data);
+        if (result.success) {
+          setData(INITIAL_STATE);
+          setSuccess(true);
+        } else {
+          setFailure(true);
+        }
+      } catch {
         setFailure(true);
       }
       setLoading(false);

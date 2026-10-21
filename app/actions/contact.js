@@ -1,9 +1,22 @@
-export async function POST(request) {
-  const { CONTACT_EMAIL } = process.env;
-  const { sender, message } = await request.json().catch(() => ({}));
+'use server';
 
-  if (!sender || !message) {
-    return Response.json({ error: 'Invalid data' }, { status: 400 });
+import { checkBotId } from 'botid/server';
+
+export async function sendContactMessage({ sender, message }) {
+  const { isBot } = await checkBotId();
+  if (isBot) {
+    return { error: 'Access denied' };
+  }
+
+  const { CONTACT_EMAIL } = process.env;
+
+  if (
+    typeof sender !== 'string' ||
+    typeof message !== 'string' ||
+    !sender ||
+    !message
+  ) {
+    return { error: 'Invalid data' };
   }
 
   const data = {
@@ -29,8 +42,8 @@ export async function POST(request) {
   console.log('Sent message to Postmark:', responseData);
 
   if (responseData.ErrorCode) {
-    return Response.json({ error: 'Sending email failed' }, { status: 400 });
+    return { error: 'Sending email failed' };
   }
 
-  return Response.json({ success: true });
+  return { success: true };
 }

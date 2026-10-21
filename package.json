@@ -13,6 +13,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/bundle-analyzer": "^16.4.2",
+    "botid": "^1.5.11",
     "gray-matter": "^4.0.3",
     "next": "^16.4.2",
     "next-mdx-remote": "^3.0.4",
