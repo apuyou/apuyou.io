@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import {
   FaGithub,
   FaProductHunt,
@@ -8,8 +6,9 @@ import {
   FaMastodon,
 } from 'react-icons/fa';
 
-import config from 'data/config';
+import styles from 'components/footer.module.css';
 import { A } from 'components/link';
+import config from 'data/config';
 
 const ICON_MAP = {
   github: <FaGithub />,
@@ -21,42 +20,12 @@ const ICON_MAP = {
 
 export default function Footer() {
   return (
-    <footer
-      sx={{
-        borderTopStyle: 'solid',
-        borderTopWidth: 2,
-        borderTopColor: 'text',
-        marginTop: 4,
-        marginX: -2,
-        paddingX: 2,
-      }}
-    >
-      <ul
-        sx={{
-          listStyleType: 'none',
-          marginX: 0,
-          marginTop: 2,
-          marginBottom: 4,
-          padding: 0,
-        }}
-      >
+    <footer className={styles.footer}>
+      <ul className={styles.list}>
         {config.social.map((link, index) => (
-          <div
-            key={link.url}
-            sx={{
-              display: 'inline-block',
-              marginRight: 1,
-            }}
-          >
+          <div key={link.url} className={styles.item}>
             <A href={link.url} target="_blank" rel="noopener noreferrer me">
-              <span
-                sx={{
-                  marginRight: 1,
-                  verticalAlign: 'middle',
-                }}
-              >
-                {ICON_MAP[link.icon]}
-              </span>
+              <span className={styles.icon}>{ICON_MAP[link.icon]}</span>
               {link.name}
             </A>
             {index < config.social.length - 1 && <>&nbsp;// </>}

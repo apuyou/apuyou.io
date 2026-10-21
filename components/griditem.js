@@ -1,18 +1,5 @@
-/** @jsxImportSource theme-ui */
+import styles from 'components/grid.module.css';
 
 export default function GridItem({ children }) {
-  return (
-    <div
-      sx={{
-        borderColor: 'secondary',
-        borderWidth: 1,
-        borderStyle: 'solid',
-        padding: 2,
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={styles.item}>{children}</div>;
 }

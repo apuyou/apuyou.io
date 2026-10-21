@@ -1,0 +1,29 @@
+.footer {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: var(--color-text);
+  margin-top: 32px;
+  margin-left: -8px;
+  margin-right: -8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.list {
+  list-style-type: none;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  padding: 0;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.icon {
+  margin-right: 4px;
+  vertical-align: middle;
+}

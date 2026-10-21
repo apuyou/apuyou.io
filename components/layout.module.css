@@ -1,0 +1,12 @@
+.layout {
+  max-width: 56em;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+@media screen and (min-width: 40em) {
+  .layout {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

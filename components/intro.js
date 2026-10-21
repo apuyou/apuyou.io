@@ -1,55 +1,22 @@
-/** @jsxImportSource theme-ui */
-
 import Image from 'next/image';
+
+import styles from 'components/intro.module.css';
 
 export default function Intro() {
   return (
-    <div
-      sx={{
-        display: 'flex',
-        height: ['70vh', '90vh'],
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        flexDirection: ['column', 'row'],
-        marginX: 'auto',
-        marginTop: [5, 0],
-      }}
-    >
-      <div
-        sx={{
-          borderWidth: 1,
-          borderStyle: 'solid',
-          borderColor: 'secondary',
-          borderRadius: 158,
-          height: [186, 316],
-          width: [186, 316],
-          marginRight: [0, 5],
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <div
-          sx={{
-            borderRadius: 150,
-            overflow: 'hidden',
-            height: [170, 300],
-            width: [170, 300],
-          }}
-        >
+    <div className={styles.intro}>
+      <div className={styles.outer}>
+        <div className={styles.inner}>
           <Image
             src="/apuyou.jpg"
             width="300"
             height="300"
             alt="Arthur Puyou Headshot"
+            className={styles.image}
           />
         </div>
       </div>
-      <h1
-        sx={{
-          lineHeight: '2em',
-        }}
-      >
+      <h1 className={styles.title}>
         Hi! 👋
         <br />
         I’m Arthur and I’m a maker!

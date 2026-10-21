@@ -1,46 +1,13 @@
-/** @jsxImportSource theme-ui */
-
+import styles from 'components/header.module.css';
 import Link from 'components/link';
 
 export default function Header() {
   return (
-    <nav
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        position: 'sticky',
-        paddingY: 3,
-        borderBottomStyle: 'solid',
-        borderBottomWidth: 2,
-        borderBottomColor: 'text',
-        marginX: -2,
-        paddingX: 2,
-        top: 0,
-        backgroundColor: 'background',
-        zIndex: 10,
-      }}
-    >
-      <div
-        sx={{
-          fontSize: 4,
-          fontWeight: 'bold',
-        }}
-      >
+    <nav className={styles.header}>
+      <div className={styles.title}>
         <Link href="/">Arthur Puyou</Link>
       </div>
-      <ul
-        sx={{
-          display: 'flex',
-          listStyleType: 'none',
-          padding: 0,
-          margin: 0,
-          marginTop: 1,
-          marginLeft: 'auto',
-          li: {
-            marginLeft: 2,
-          },
-        }}
-      >
+      <ul className={styles.menu}>
         <li>
           <Link href="/#blog">Blog</Link>
         </li>

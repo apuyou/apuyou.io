@@ -1,10 +1,22 @@
-export default async function handler(req, res) {
-  const { CONTACT_EMAIL } = process.env;
-  const { sender, message } = req.body;
+'use server';
 
-  if (!sender || !message) {
-    res.status(400).json({ error: 'Invalid data' });
-    return;
+import { checkBotId } from 'botid/server';
+
+export async function sendContactMessage({ sender, message }) {
+  const { isBot } = await checkBotId();
+  if (isBot) {
+    return { error: 'Access denied' };
+  }
+
+  const { CONTACT_EMAIL } = process.env;
+
+  if (
+    typeof sender !== 'string' ||
+    typeof message !== 'string' ||
+    !sender ||
+    !message
+  ) {
+    return { error: 'Invalid data' };
   }
 
   const data = {
@@ -30,9 +42,8 @@ export default async function handler(req, res) {
   console.log('Sent message to Postmark:', responseData);
 
   if (responseData.ErrorCode) {
-    res.status(400).json({ error: 'Sending email failed' });
-    return;
+    return { error: 'Sending email failed' };
   }
 
-  res.status(200).json({ success: true });
+  return { success: true };
 }

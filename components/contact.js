@@ -1,7 +1,10 @@
-/** @jsxImportSource theme-ui */
+'use client';
 
 import { useCallback, useState } from 'react';
-import { Button } from 'theme-ui';
+
+import { sendContactMessage } from 'app/actions/contact';
+import Button from 'components/button';
+import styles from 'components/contact.module.css';
 
 const INITIAL_STATE = {
   sender: '',
@@ -20,18 +23,15 @@ export default function Contact() {
       setSuccess(false);
       setFailure(false);
       setLoading(true);
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-      });
-      if (response.status === 200) {
-        setData(INITIAL_STATE);
-        setSuccess(true);
-      } else {
+      try {
+        const result = await sendContactMessage(data);
+        if (result.success) {
+          setData(INITIAL_STATE);
+          setSuccess(true);
+        } else {
+          setFailure(true);
+        }
+      } catch {
         setFailure(true);
       }
       setLoading(false);
@@ -52,34 +52,17 @@ export default function Contact() {
     <>
       <h2 id="contact">Contact</h2>
       {success && (
-        <p sx={{ color: 'green' }}>
+        <p className={styles.success}>
           Thank you, I&rsquo;ll get back to you shortly!
         </p>
       )}
       {failure && (
-        <p sx={{ color: 'red' }}>
+        <p className={styles.failure}>
           Sorry, the message could not be sent. Please check that your email
           address is valid.
         </p>
       )}
-      <form
-        onSubmit={onSubmit}
-        sx={{
-          '& label': {
-            display: 'block',
-            marginTop: 1,
-          },
-          '& input, & textarea': {
-            width: '100%',
-            borderWidth: 1,
-            borderStyle: 'solid',
-            borderColor: 'secondary',
-            borderRadius: 0,
-            backgroundColor: 'transparent',
-            color: 'text',
-          },
-        }}
-      >
+      <form onSubmit={onSubmit} className={styles.form}>
         <div>
           <label>Email</label>
           <input
@@ -89,7 +72,7 @@ export default function Contact() {
             value={data.sender}
             onChange={onChange('sender')}
             disabled={loading}
-            sx={{ height: '2.5em' }}
+            className={styles.email}
           />
         </div>
         <div>
@@ -100,9 +83,7 @@ export default function Contact() {
             value={data.message}
             onChange={onChange('message')}
             disabled={loading}
-            sx={{
-              height: '7.5em',
-            }}
+            className={styles.message}
           />
         </div>
         <div>

@@ -1,19 +1,10 @@
-/** @jsxImportSource theme-ui */
-
 import NextLink from 'next/link';
+
+import styles from 'components/link.module.css';
 
 export function A({ children, ...rest }) {
   return (
-    <a
-      sx={{
-        color: 'text',
-        textDecoration: 'none',
-        '&:hover': {
-          textDecoration: 'underline',
-        },
-      }}
-      {...rest}
-    >
+    <a className={styles.link} {...rest}>
       {children}
     </a>
   );
@@ -21,8 +12,8 @@ export function A({ children, ...rest }) {
 
 export default function Link({ children, ...rest }) {
   return (
-    <NextLink {...rest} passHref>
-      <A>{children}</A>
+    <NextLink className={styles.link} {...rest}>
+      {children}
     </NextLink>
   );
 }

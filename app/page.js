@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import Contact from 'components/contact';
 import Intro from 'components/intro';
 import Posts from 'components/posts';
@@ -8,25 +6,14 @@ import Skills from 'components/skills';
 import projectsData from 'data/projects.json';
 import { getPosts } from 'data/posts';
 
-export default function HomePage({ posts, projects }) {
+export default function HomePage() {
   return (
     <>
       <Intro />
-      <Posts posts={posts} />
-      <Projects projects={projects} />
+      <Posts posts={getPosts().filter((p) => !p.metadata.draft)} />
+      <Projects projects={projectsData} />
       <Skills />
       <Contact />
     </>
   );
-}
-
-export async function getStaticProps() {
-  const posts = getPosts().filter((p) => !p.metadata.draft);
-
-  return {
-    props: {
-      posts,
-      projects: projectsData,
-    },
-  };
 }
