@@ -1,4 +1,7 @@
 /** @jsxImportSource theme-ui */
+
+'use client';
+
 import { useState } from 'react';
 import { Button } from 'theme-ui';
 import Image from 'next/image';

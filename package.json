@@ -6,6 +6,8 @@
   "author": "Arthur Puyou <arthur@puyou.fr>",
   "dependencies": {
     "@babel/core": "^7.15.0",
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
     "@fontsource/crimson-text": "^4.5.0",
     "@fontsource/rosario": "^4.5.0",
     "@mdx-js/loader": "^1.6.22",

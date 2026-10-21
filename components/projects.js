@@ -1,4 +1,7 @@
 /** @jsxImportSource theme-ui */
+
+'use client';
+
 import { useState } from 'react';
 import { FaLink, FaGithub, FaProductHunt } from 'react-icons/fa';
 import { useThemeUI, Button } from 'theme-ui';

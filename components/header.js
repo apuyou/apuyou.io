@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+'use client';
+
 import Link from 'components/link';
 
 export default function Header() {

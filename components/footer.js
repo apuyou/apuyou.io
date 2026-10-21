@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+'use client';
+
 import {
   FaGithub,
   FaProductHunt,

@@ -1,10 +1,9 @@
-export default async function handler(req, res) {
+export async function POST(request) {
   const { CONTACT_EMAIL } = process.env;
-  const { sender, message } = req.body;
+  const { sender, message } = await request.json().catch(() => ({}));
 
   if (!sender || !message) {
-    res.status(400).json({ error: 'Invalid data' });
-    return;
+    return Response.json({ error: 'Invalid data' }, { status: 400 });
   }
 
   const data = {
@@ -30,9 +29,8 @@ export default async function handler(req, res) {
   console.log('Sent message to Postmark:', responseData);
 
   if (responseData.ErrorCode) {
-    res.status(400).json({ error: 'Sending email failed' });
-    return;
+    return Response.json({ error: 'Sending email failed' }, { status: 400 });
   }
 
-  res.status(200).json({ success: true });
+  return Response.json({ success: true });
 }

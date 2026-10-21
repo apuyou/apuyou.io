@@ -9,14 +9,17 @@ const post = (url, data) =>
     body: JSON.stringify(data),
   }).then((resp) => resp.json());
 
-export default async function handler(req, res) {
-  const ipAddress = req.headers['x-forwarded-for'];
+export async function POST(request) {
+  const ipAddress = request.headers.get('x-forwarded-for');
   if (!ipAddress) {
-    res.status(200).json({ status: 'skip' });
-    return;
+    return Response.json({ status: 'skip' });
   }
 
-  const parsedBody = req.body;
+  // The client sends JSON without a content type, so parse the raw text
+  const parsedBody = await request
+    .text()
+    .then((text) => JSON.parse(text))
+    .catch(() => ({}));
   const uuidMatcher =
     /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
   const deviceId =
@@ -52,8 +55,8 @@ export default async function handler(req, res) {
         },
       ],
     };
-    if (req.headers['user-agent']) {
-      const ua = UAParserJs(req.headers['user-agent']);
+    if (request.headers.get('user-agent')) {
+      const ua = UAParserJs(request.headers.get('user-agent'));
       amplitudeData.events[0].os_name = ua.browser.name;
       amplitudeData.events[0].os_version = ua.browser.version;
       amplitudeData.events[0].device_model = ua.os.name;
@@ -107,5 +110,5 @@ export default async function handler(req, res) {
     status = 'error';
   }
 
-  res.status(200).json({ status });
+  return Response.json({ status });
 }

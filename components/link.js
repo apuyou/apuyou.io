@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+'use client';
+
 import NextLink from 'next/link';
 
 const linkStyle = {

@@ -1,5 +1,7 @@
 /** @jsxImportSource theme-ui */
 
+'use client';
+
 export default function Grid({ children }) {
   return (
     <div
