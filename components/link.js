@@ -2,18 +2,17 @@
 
 import NextLink from 'next/link';
 
+const linkStyle = {
+  color: 'text',
+  textDecoration: 'none',
+  '&:hover': {
+    textDecoration: 'underline',
+  },
+};
+
 export function A({ children, ...rest }) {
   return (
-    <a
-      sx={{
-        color: 'text',
-        textDecoration: 'none',
-        '&:hover': {
-          textDecoration: 'underline',
-        },
-      }}
-      {...rest}
-    >
+    <a sx={linkStyle} {...rest}>
       {children}
     </a>
   );
@@ -21,8 +20,8 @@ export function A({ children, ...rest }) {
 
 export default function Link({ children, ...rest }) {
   return (
-    <NextLink {...rest} passHref>
-      <A>{children}</A>
+    <NextLink sx={linkStyle} {...rest}>
+      {children}
     </NextLink>
   );
 }

@@ -10,9 +10,7 @@ export default function BlogPostPage({ source, metadata }) {
   return (
     <>
       <Head>
-        <title>
-          {metadata.title} – {config.defaultTitle}
-        </title>
+        <title>{`${metadata.title} – ${config.defaultTitle}`}</title>
       </Head>
       <MDXRemote {...source} />
     </>

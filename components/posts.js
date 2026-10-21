@@ -44,6 +44,7 @@ export default function Posts({ posts }) {
                         width={50}
                         height={50}
                         alt=""
+                        sx={{ display: 'block' }}
                       />
                     </Link>
                   )}

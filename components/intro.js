@@ -42,6 +42,7 @@ export default function Intro() {
             width="300"
             height="300"
             alt="Arthur Puyou Headshot"
+            sx={{ display: 'block', width: '100%', height: 'auto' }}
           />
         </div>
       </div>
